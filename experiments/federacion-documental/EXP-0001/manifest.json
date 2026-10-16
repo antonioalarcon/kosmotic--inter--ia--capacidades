@@ -1,0 +1,23 @@
+{
+  "schema": "kosmotic.inter-ia.exp-manifest.v0.1",
+  "gid": "KOS-IIA-EXP-0001",
+  "vid": "V0.1",
+  "artifact": "EXP-0001.md",
+  "source_authority": "Google Drive",
+  "source_file_id": "1WMdoEOyyvsRT9MkJkMZyImX72pSkyW7m",
+  "source_url": "https://drive.google.com/file/d/1WMdoEOyyvsRT9MkJkMZyImX72pSkyW7m/view",
+  "mime_type": "text/markdown",
+  "encoding": "UTF-8",
+  "bom": false,
+  "line_endings": "LF",
+  "trailing_newline": true,
+  "size_bytes": 920,
+  "sha256": "04ec94bd1df74a3d5309668011f1b0c014dc97c6adf068d03b4690e12d7014d4",
+  "sha256_provenance": "Computed on original local bytes before upload; independent Drive download hash not yet verified",
+  "document_state": "BORRADOR",
+  "replica_state": "PENDIENTE",
+  "restoration_state": "PENDIENTE",
+  "federated_round_state": "PENDIENTE",
+  "human_approval": "PENDIENTE",
+  "notes": "Synthetic non-sensitive artifact. Manifest proposed in draft PR only; no homologation claimed."
+}

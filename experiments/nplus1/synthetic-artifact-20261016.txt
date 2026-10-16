@@ -1,0 +1,8 @@
+KOS-IIA-NPLUS1-SYNTHETIC-20261016-V1
+classification=synthetic-public
+purpose=byte-persistence-and-recovery-test
+record=FARO-NPLUS1-0001
+fact=This is a fictional test artifact.
+authority=human
+status=non-operational
+END

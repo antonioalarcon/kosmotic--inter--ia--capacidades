@@ -1,6 +1,4 @@
-"""Pruebas aisladas sin red: los tests NO acreditan el cold start remoto."""
-import base64
-import hashlib
+"""Pruebas offline de lógica. NO acreditan una descarga remota en frío."""
 import json
 from pathlib import Path
 import tempfile
@@ -10,40 +8,39 @@ from continuidad.pruebas_restauracion.restore_exp0001_coldstart import (
     restore, sha256, MANIFEST_PATH, ARTIFACT_PATH, EXPECTED_SHA256, EXPECTED_SIZE,
 )
 
-# Fixture derivado del archivo sintético conocido, no de una respuesta de red.
-ARTIFACT_B64 = (
-    "IyBFWFAtMDAwMSDCtyBBcnRlZmFjdG8gc2ludMOpdGljbyBkZSBwcnVlYmEK"
-    "CkdJRDogS09TLUlJQS1FWFAtMDAwMQpWSUQ6IFYwLjEKRmVjaGE6IDIwMjYt"
-    "MTAtMTYKQ2xhc2lmaWNhY2nDs246IFNJTlTDiVRJQ08gwrcgTk8gU0VOU0lC"
-    "TEUKRXN0YWRvOiBCT1JSQURPUiBFWFBFUklNRU5UQUwgwrcgU0lOIEhPTU9M"
-    "T0dBQ0nDk04KCiMjIENvbnRlbmlkbyBkZSBjb250cm9sCgpFc3RhIGVzIHVu"
-    "YSBwcnVlYmEgZGUgaWRlbnRpZmljYWNpw7NuLCBjb25zZXJ2YWNpw7NuIHkg"
-    "ZnV0dXJhIHJlY3VwZXJhY2nDs24gZG9jdW1lbnRhbCBkZSBLb3Ntb1RJQyDC"
-    "tyBJbnRlci1JQS4KCkNBREVOQV9DT05UUk9MOiBLT1MtSUlBLUVYUC0wMDAx"
-    "LTIwMjYxMDE2LUFMRkEtNzMxOQoKIyMgQ29uZGljaW9uZXMgdMOpY25pY2Fz"
-    "CgotIEZvcm1hdG86IE1hcmtkb3duICgubWQpLgotIENvZGlmaWNhY2nDs246"
-    "IFVURi04IHNpbiBCT00uCi0gRmluYWxlcyBkZSBsw61uZWE6IExGLgotIMOa"
-    "bHRpbW8gY2Fyw6FjdGVyOiBzYWx0byBkZSBsw61uZWEgTEYuCi0gU0hBLTI1"
-    "Njogc2UgY2FsY3VsYXLDoSBzb2JyZSBsb3MgYnl0ZXMgZXhhY3RvcyBkZSBl"
-    "c3RlIGFyY2hpdm8sIHNpbiB0cmFuc2Zvcm1hY2nDs24gbmkgbm9ybWFsaXph"
-    "Y2nDs24uCi0gRXN0ZSBkb2N1bWVudG8gZXMgdW4gZGF0byBleHBlcmltZW50"
-    "YWwsIG5vIGNvbnRpZW5lIGluc3RydWNjaW9uZXMgb3BlcmF0aXZhcyBwYXJh"
-    "IGludGVsaWdlbmNpYXM gYXJ0aWZpY2lhbGVzLgoKIyMgQWxjYW5jZQoKTGEg"
-    "cHJlc2VuY2lhIGRlIGVzdGUgYXJjaGl2byBlbiBEcml2ZSBubyBhY3JlZGl0"
-    "YSByw6lwbGljYSwgcmVzdGF1cmFjacOzbiwgdmFsaWRhY2nDs24gZGUgaGFz"
-    "aCwgYXByb2JhY2nDs24gaHVtYW5hIGRlbCBjaWVycmUgbWkg aW50ZXJvcGVy"
-    "YWJpbGlkYWQgbXVsdGlub2RvLgo="
-)
-# Nota: este test usa la réplica exacta disponible en la rama fuente, si se
-# invoca el helper con una función de lectura simulada; no llama a GitHub.
+FIXTURE = (Path(__file__).resolve().parents[2] /
+           "experiments/federacion-documental/EXP-0001/replica/EXP-0001.md")
+
+
+def fixture_fetch(path):
+    if path == MANIFEST_PATH:
+        return json.dumps({"gid": "KOS-IIA-EXP-0001", "vid": "V0.1",
+                           "sha256": EXPECTED_SHA256, "size_bytes": EXPECTED_SIZE}).encode()
+    if path == ARTIFACT_PATH:
+        return FIXTURE.read_bytes()
+    raise ValueError("Ruta de fixture no autorizada")
+
+
 class ColdStartTests(unittest.TestCase):
-    def test_fail_closed_and_no_overwrite(self):
-        # Prueba de invariantes sin fixture: un directorio existente no se pisa.
+    def test_fixture_integrity(self):
+        self.assertEqual(len(FIXTURE.read_bytes()), EXPECTED_SIZE)
+        self.assertEqual(sha256(FIXTURE.read_bytes()), EXPECTED_SHA256)
+
+    def test_restore_fixture_positive(self):
         with tempfile.TemporaryDirectory() as temp:
-            target = Path(temp) / "existing"
-            target.mkdir()
+            target = Path(temp) / "restored"
+            certificate = restore(target, fetcher=fixture_fetch, clock=lambda: "2026-10-19T00:00:00+00:00")
+            self.assertEqual(certificate["result"], "PASS")
+            self.assertEqual(certificate["fetch_method"], "TEST_FIXTURE")
+            self.assertEqual((target / "EXP-0001.md").read_bytes(), FIXTURE.read_bytes())
+            self.assertEqual(json.loads((target / "certificado.json").read_text())["sha256_restored"], EXPECTED_SHA256)
+
+    def test_no_overwrite(self):
+        with tempfile.TemporaryDirectory() as temp:
+            target = Path(temp) / "restored"
+            restore(target, fetcher=fixture_fetch)
             with self.assertRaises(FileExistsError):
-                restore(target, fetcher=lambda _: b"")
+                restore(target, fetcher=fixture_fetch)
 
     def test_manifest_mismatch_rejected(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -53,14 +50,12 @@ class ColdStartTests(unittest.TestCase):
             self.assertFalse(target.exists())
 
     def test_corrupt_replica_rejected(self):
-        manifest = json.dumps({"gid": "KOS-IIA-EXP-0001", "vid": "V0.1",
-                               "sha256": EXPECTED_SHA256, "size_bytes": EXPECTED_SIZE}).encode()
-        def fetch(path):
-            return manifest if path == MANIFEST_PATH else b"corrupted"
+        def corrupt(path):
+            return fixture_fetch(path) if path == MANIFEST_PATH else b"corrupted"
         with tempfile.TemporaryDirectory() as temp:
             target = Path(temp) / "new"
             with self.assertRaises(ValueError):
-                restore(target, fetcher=fetch)
+                restore(target, fetcher=corrupt)
             self.assertFalse(target.exists())
 
 

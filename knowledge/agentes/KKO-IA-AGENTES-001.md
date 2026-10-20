@@ -1,10 +1,10 @@
 ---
 id: KKO-IA-AGENTES-001
 format_version: 0.1.0
-version: 0.1.3
+version: 0.1.4
 title: "Agentes de inteligencia artificial"
 domain: artificial-intelligence
-status: review
+status: validated
 created: "2026-10-20"
 updated: "2026-10-20"
 human_review_required: true
@@ -22,7 +22,7 @@ related_kcr: []
 
 # Agentes de inteligencia artificial
 
-> **Estado: en revisión.** La validación técnica y la revisión editorial asistida no equivalen a aprobación humana ni a autorización de publicación.
+> **Estado: validado editorialmente por aprobación humana expresa el 2026-10-20.** La aprobación del contenido NO autoriza su publicación como libro, Academia o KosmoWiki. `publication_approved: false`.
 
 ## Definición
 
@@ -54,7 +54,7 @@ No todos los sistemas requieren planificación abierta: un flujo automatizado co
 - **Inter-IA:** coordina capacidades admitidas para una misión.
 - **PAE / PLAC / HITL:** admisión basada en evidencia, permisos operativos y aprobación humana cuando corresponda; sus reglas detalladas siguen pendientes de formalización.
 
-**Destinos editoriales previstos:** lección L10 de Academia y capítulo C10 del libro, según `docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md`. KosmoWiki podrá mostrar una síntesis del mismo KKO. No se afirma que estos derivados ya estén generados.
+**Representaciones autorizadas para preparación, NO para publicación:** lección L10 de Academia, capítulo C10 del libro y ficha de KosmoWiki. Todas deben derivarse de este KKO y enlazar a su ID y versión. Su generación pública o despliegue requiere autorización independiente.
 
 ## Fuentes de referencia
 
@@ -62,17 +62,16 @@ No todos los sistemas requieren planificación abierta: un flujo automatizado co
 2. OpenAI, *A practical guide to building agents* (2026): https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — componentes, orquestación y controles. Fuente revisada el 2026-10-20.
 3. NIST, *AI Risk Management Framework 1.0* (2023): https://doi.org/10.6028/NIST.AI.100-1 — gestión del riesgo de sistemas de IA; **no** es una definición específica de agente. La publicación original está confirmada en NIST y el marco 1.0 se encuentra en proceso de revisión a fecha 2026-10-20.
 
-## Dictamen editorial asistido · 2026-10-20
+## Dictamen editorial y aprobación · 2026-10-20
 
-**Recomendación:** apto para someter a aprobación humana como objeto piloto introductorio; no se han detectado contradicciones conceptuales relevantes en el alcance de esta ficha. La revisión no constituye auditoría científica exhaustiva ni valida su aplicación a entornos críticos.
+**Dictamen asistido:** apto para uso introductorio; no equivale a auditoría científica exhaustiva ni valida su aplicación a entornos críticos.
 
-- [x] Definición comprensible para público general y compatible con fuentes consultadas.
-- [x] Diferencia entre agentes y flujos de trabajo expresada sin absolutismos.
-- [x] Ejemplo práctico, riesgos, límites y relaciones KKO/KCR/Inter-IA incluidos.
-- [x] Fuentes técnicas y de gestión de riesgos identificadas; advertencias de vigencia incorporadas.
-- [x] Correspondencias L10/C10 y contrato mínimo de metadatos revisados preliminarmente.
-- [x] Validación automática de metadatos en CI completada en la versión anterior: [ejecución](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39355327384). Esta edición requiere su propia comprobación CI.
-- [ ] Aprobación editorial humana expresa de esta versión.
-- [ ] Autorización humana expresa para generar/publicar derivados.
+- [x] Definición comprensible y compatible con las fuentes identificadas.
+- [x] Diferencia entre agentes y flujos de trabajo sin absolutismos.
+- [x] Ejemplo práctico, riesgos y relaciones KKO/KCR/Inter-IA.
+- [x] Fuentes y advertencias de vigencia documentadas.
+- [x] Correspondencias L10/C10 revisadas preliminarmente.
+- [x] Aprobación editorial humana expresa de la versión 0.1.3 mediante «OK» en respuesta a la solicitud del paso 8 de la conversación KosmoTIC, 2026-10-20; esta versión 0.1.4 solo registra esa aprobación y aclara su alcance.
+- [ ] Autorización humana expresa de publicación de los derivados.
 
-**Regla:** el contenido permanece en `status: review` y `publication_approved: false` hasta registrar ambas decisiones; una revisión asistida por IA no se presenta como revisión humana.
+**Regla:** la aprobación editorial no equivale a permiso para distribuir los derivados. El repositorio donde reside este KKO es público: el propio KKO es visible allí, aunque los derivados no se han publicado.

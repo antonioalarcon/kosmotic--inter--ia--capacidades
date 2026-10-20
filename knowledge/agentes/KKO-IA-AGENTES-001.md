@@ -1,7 +1,7 @@
 ---
 id: KKO-IA-AGENTES-001
 format_version: 0.1.0
-version: 0.1.1
+version: 0.1.2
 title: "Agentes de inteligencia artificial"
 domain: artificial-intelligence
 status: review
@@ -67,9 +67,9 @@ No todos los sistemas requieren planificación abierta: un flujo automatizado co
 - [x] Definición conceptual contrastada preliminarmente con fuentes técnicas identificadas.
 - [x] Accesibilidad de las tres referencias comprobada el 2026-10-20.
 - [x] Correspondencias L10/C10 comprobadas contra la matriz editorial existente.
-- [x] Metadatos adaptados al contrato mínimo `schemas/kko.schema.json` (validación automática aún no implantada).
+- [x] Metadatos adaptados al contrato mínimo `schemas/kko.schema.json`.
+- [x] Validación automática del YAML contra JSON Schema en CI: ejecución inicial correcta el 2026-10-20; [ver GitHub Actions](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39355327384).
 - [ ] Revisión y aprobación editorial humana del contenido.
-- [ ] Validación automática del YAML contra JSON Schema en CI.
 - [ ] Aprobación expresa para publicar derivados.
 
-**Regla:** la existencia de este archivo en GitHub, incluso en estado `review`, no equivale a validación humana ni a autorización de publicación.
+**Regla:** la validación automática solo comprueba metadatos; la existencia de este archivo en GitHub, incluso en estado `review`, no equivale a validación humana ni a autorización de publicación.

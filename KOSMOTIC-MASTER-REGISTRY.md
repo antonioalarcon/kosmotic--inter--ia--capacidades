@@ -1,7 +1,7 @@
 # KosmoTIC · Registro Maestro
 
 **ID:** KOS-MASTER-REGISTRY  
-**Versión:** 0.1.2  
+**Versión:** 0.1.3  
 **Fecha de alta:** 2026-10-20  
 **Estado:** inicial · en evolución  
 **Custodia inicial:** repositorio `antonioalarcon/kosmotic-inter-ia-capacidades`  
@@ -25,7 +25,7 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | Inter-IA | Selección, contraste y coordinación de capacidades | Base existente; ampliación pendiente |
 | Transformación | Aplicación práctica de resultados | Conceptual |
 | Comunidad | Participación y revisión humana | Conceptual |
-| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Esquema pendiente |
+| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Piloto en borrador; esquema pendiente |
 | KCR | Registro vivo de capacidades, misiones y validaciones | Normalización con estructura existente pendiente |
 | PAE | Admisión de tecnologías basada en utilidad demostrada | Formalización pendiente |
 | PLAC | Límites, permisos y autoridad operativa | Especificación pendiente |
@@ -43,6 +43,7 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | KOS-DEC-004 | 2026-10-20 | Adoptar y registrar `KOSMOTIC-MASTER-REGISTRY.md` como referencia inicial en GitHub | Aprobado para ejecución | OK explícito en la conversación, 2026-10-20 |
 | KOS-DEC-005 | 2026-10-20 | Registrar borrador del contrato arquitectónico `KOS-ARCH-0.1` en la carpeta existente de arquitectura | Escritura aprobada; contenido pendiente de validación | OK para el paso 2 en la conversación, 2026-10-20 |
 | KOS-DEC-006 | 2026-10-20 | Crear matriz editorial mínima L01–L25 ↔ C01–C40, sin duplicación de contenidos | Escritura aprobada; correspondencias pendientes de validación editorial | OK para el paso 3 en la conversación, 2026-10-20 |
+| KOS-DEC-007 | 2026-10-20 | Crear el piloto `KKO-IA-AGENTES-001` en la carpeta existente de conocimiento, sin duplicar KCR | Escritura ejecutada; contenido pendiente de validación humana | OK para el paso 4 en la conversación, 2026-10-20 |
 
 Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes ni evidencia exportada. En una fase posterior deberán incorporarse actas o referencias verificables cuando corresponda.
 
@@ -53,6 +54,7 @@ Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes
 - **KKO:** fuente estructurada de afirmaciones, definiciones, fuentes, vigencia y relaciones.
 - **Derivados:** Academia, KosmoWiki, libro, artículos y otros formatos, cada uno con estado de publicación.
 - **Correspondencias:** [matriz editorial v0.1](docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md), registrada como borrador para revisión humana.
+- **Piloto KKO:** [agentes de IA v0.1.0](knowledge/agentes/KKO-IA-AGENTES-001.md), borrador con fuentes y destinos L10/C10; aún no validado ni publicado en derivados.
 
 Los índices existentes son planes editoriales, no prueba de que todo el contenido esté ya incorporado al repositorio.
 
@@ -73,9 +75,10 @@ Este registro nace **provisionalmente** en el repositorio público `antonioalarc
 
 - **Contrato arquitectónico v0.1 (borrador):** [`docs/arquitectura/KOS-ARCH-0.1.md`](docs/arquitectura/KOS-ARCH-0.1.md). Registrado en GitHub el 2026-10-20; pendiente de validación humana del contenido.
 - **Matriz editorial v0.1 (borrador):** [`docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md`](docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md). Correspondencias de 25 lecciones y 40 capítulos; pendiente de validación humana.
-- **Siguiente paso propuesto (pendiente de OK):** definir y pilotar `KKO-IA-AGENTES-001` con evidencia, sin duplicar KCR.
+- **Piloto KKO v0.1.0 (borrador):** [`knowledge/agentes/KKO-IA-AGENTES-001.md`](knowledge/agentes/KKO-IA-AGENTES-001.md). Definición, límites, fuentes y destinos editoriales; pendiente de validación humana.
+- **Siguiente paso propuesto (pendiente de OK):** validar el KKO piloto y definir su formato mínimo verificable antes de generar representaciones del libro y Academia/KosmoWiki.
 
-**Criterio de cierre del paso 3:** matriz consultable e indexada, con cobertura de 25 lecciones y 40 capítulos, sin presentar la planificación como contenido ya publicado.
+**Criterio de cierre del paso 4:** archivo piloto consultable e indexado, sin afirmar que ha superado revisión científica, editorial o validación automática.
 
 ---
 

@@ -1,7 +1,7 @@
 # KosmoTIC · Registro Maestro
 
 **ID:** KOS-MASTER-REGISTRY  
-**Versión:** 0.1.1  
+**Versión:** 0.1.2  
 **Fecha de alta:** 2026-10-20  
 **Estado:** inicial · en evolución  
 **Custodia inicial:** repositorio `antonioalarcon/kosmotic-inter-ia-capacidades`  
@@ -42,6 +42,7 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | KOS-DEC-003 | 2026-10-19 | Normalizar arquitectura y probar un primer KKO antes de migrar los 40 capítulos | Propuesta de siguiente fase | Conversación KosmoTIC, 2026-10-19 |
 | KOS-DEC-004 | 2026-10-20 | Adoptar y registrar `KOSMOTIC-MASTER-REGISTRY.md` como referencia inicial en GitHub | Aprobado para ejecución | OK explícito en la conversación, 2026-10-20 |
 | KOS-DEC-005 | 2026-10-20 | Registrar borrador del contrato arquitectónico `KOS-ARCH-0.1` en la carpeta existente de arquitectura | Escritura aprobada; contenido pendiente de validación | OK para el paso 2 en la conversación, 2026-10-20 |
+| KOS-DEC-006 | 2026-10-20 | Crear matriz editorial mínima L01–L25 ↔ C01–C40, sin duplicación de contenidos | Escritura aprobada; correspondencias pendientes de validación editorial | OK para el paso 3 en la conversación, 2026-10-20 |
 
 Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes ni evidencia exportada. En una fase posterior deberán incorporarse actas o referencias verificables cuando corresponda.
 
@@ -51,7 +52,7 @@ Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes
 - **Libro ampliado:** índice editorial provisional de 40 capítulos.
 - **KKO:** fuente estructurada de afirmaciones, definiciones, fuentes, vigencia y relaciones.
 - **Derivados:** Academia, KosmoWiki, libro, artículos y otros formatos, cada uno con estado de publicación.
-- **Correspondencias:** matriz `lección ↔ capítulo ↔ KKO` pendiente de crear y validar.
+- **Correspondencias:** [matriz editorial v0.1](docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md), registrada como borrador para revisión humana.
 
 Los índices existentes son planes editoriales, no prueba de que todo el contenido esté ya incorporado al repositorio.
 
@@ -71,9 +72,10 @@ Este registro nace **provisionalmente** en el repositorio público `antonioalarc
 ## 7. Documentos y siguiente paso
 
 - **Contrato arquitectónico v0.1 (borrador):** [`docs/arquitectura/KOS-ARCH-0.1.md`](docs/arquitectura/KOS-ARCH-0.1.md). Registrado en GitHub el 2026-10-20; pendiente de validación humana del contenido.
-- **Siguiente paso propuesto (pendiente de OK):** preparar matriz de correspondencia entre las 25 lecciones y los 40 capítulos, y después pilotar `KKO-IA-AGENTES-001`.
+- **Matriz editorial v0.1 (borrador):** [`docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md`](docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md). Correspondencias de 25 lecciones y 40 capítulos; pendiente de validación humana.
+- **Siguiente paso propuesto (pendiente de OK):** definir y pilotar `KKO-IA-AGENTES-001` con evidencia, sin duplicar KCR.
 
-**Criterio de cierre del paso 2:** contrato consultable en la ubicación de arquitectura existente, indexado aquí, sin duplicar el KCR ni presentar como implementadas funciones conceptuales.
+**Criterio de cierre del paso 3:** matriz consultable e indexada, con cobertura de 25 lecciones y 40 capítulos, sin presentar la planificación como contenido ya publicado.
 
 ---
 

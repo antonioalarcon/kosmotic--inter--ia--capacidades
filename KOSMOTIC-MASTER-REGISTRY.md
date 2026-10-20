@@ -1,7 +1,7 @@
 # KosmoTIC · Registro Maestro
 
 **ID:** KOS-MASTER-REGISTRY  
-**Versión:** 0.1.0  
+**Versión:** 0.1.1  
 **Fecha de alta:** 2026-10-20  
 **Estado:** inicial · en evolución  
 **Custodia inicial:** repositorio `antonioalarcon/kosmotic-inter-ia-capacidades`  
@@ -41,6 +41,7 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | KOS-DEC-002 | 2026-10-08 | Diseñar el libro como publicación modular y versionada, vinculada a objetos de conocimiento y GitHub | Diseño propuesto; implementación no aprobada por separado | Conversación KosmoTIC, 2026-10-08 |
 | KOS-DEC-003 | 2026-10-19 | Normalizar arquitectura y probar un primer KKO antes de migrar los 40 capítulos | Propuesta de siguiente fase | Conversación KosmoTIC, 2026-10-19 |
 | KOS-DEC-004 | 2026-10-20 | Adoptar y registrar `KOSMOTIC-MASTER-REGISTRY.md` como referencia inicial en GitHub | Aprobado para ejecución | OK explícito en la conversación, 2026-10-20 |
+| KOS-DEC-005 | 2026-10-20 | Registrar borrador del contrato arquitectónico `KOS-ARCH-0.1` en la carpeta existente de arquitectura | Escritura aprobada; contenido pendiente de validación | OK para el paso 2 en la conversación, 2026-10-20 |
 
 Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes ni evidencia exportada. En una fase posterior deberán incorporarse actas o referencias verificables cuando corresponda.
 
@@ -67,11 +68,12 @@ Los índices existentes son planes editoriales, no prueba de que todo el conteni
 
 Este registro nace **provisionalmente** en el repositorio público `antonioalarcon/kosmotic-inter-ia-capacidades`, ya existente y accesible. Su presencia aquí **no decide** que ese repositorio sea la sede definitiva de todo KosmoTIC ni fusiona las responsabilidades de KKO y KCR. Una futura migración a un repositorio maestro requerirá decisión y trazabilidad.
 
-## 7. Próximo paso propuesto (pendiente de OK)
+## 7. Documentos y siguiente paso
 
-**KOS-ARCH-0.1:** definir el contrato mínimo entre KKO, KCR, Inter-IA y gobernanza, y preparar la matriz de equivalencias entre las 25 lecciones y los 40 capítulos. Empezar por un único piloto `KKO-IA-AGENTES-001` antes de ampliar el sistema.
+- **Contrato arquitectónico v0.1 (borrador):** [`docs/arquitectura/KOS-ARCH-0.1.md`](docs/arquitectura/KOS-ARCH-0.1.md). Registrado en GitHub el 2026-10-20; pendiente de validación humana del contenido.
+- **Siguiente paso propuesto (pendiente de OK):** preparar matriz de correspondencia entre las 25 lecciones y los 40 capítulos, y después pilotar `KKO-IA-AGENTES-001`.
 
-**Criterio de cierre del siguiente paso:** documento de contrato revisable, sin duplicar el KCR existente y sin declarar como implementadas funciones que aún son conceptuales.
+**Criterio de cierre del paso 2:** contrato consultable en la ubicación de arquitectura existente, indexado aquí, sin duplicar el KCR ni presentar como implementadas funciones conceptuales.
 
 ---
 

@@ -1,7 +1,7 @@
 # KosmoTIC · Registro Maestro
 
 **ID:** KOS-MASTER-REGISTRY  
-**Versión:** 0.1.4  
+**Versión:** 0.1.5  
 **Fecha de alta:** 2026-10-20  
 **Estado:** inicial · en evolución  
 **Custodia inicial:** repositorio `antonioalarcon/kosmotic-inter-ia-capacidades`  
@@ -25,7 +25,7 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | Inter-IA | Selección, contraste y coordinación de capacidades | Base existente; ampliación pendiente |
 | Transformación | Aplicación práctica de resultados | Conceptual |
 | Comunidad | Participación y revisión humana | Conceptual |
-| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Piloto en revisión; esquema mínimo definido, automatización pendiente |
+| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Piloto en revisión; validación técnica automática implantada |
 | KCR | Registro vivo de capacidades, misiones y validaciones | Normalización con estructura existente pendiente |
 | PAE | Admisión de tecnologías basada en utilidad demostrada | Formalización pendiente |
 | PLAC | Límites, permisos y autoridad operativa | Especificación pendiente |
@@ -44,7 +44,8 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | KOS-DEC-005 | 2026-10-20 | Registrar borrador del contrato arquitectónico `KOS-ARCH-0.1` en la carpeta existente de arquitectura | Escritura aprobada; contenido pendiente de validación | OK para el paso 2 en la conversación, 2026-10-20 |
 | KOS-DEC-006 | 2026-10-20 | Crear matriz editorial mínima L01–L25 ↔ C01–C40, sin duplicación de contenidos | Escritura aprobada; correspondencias pendientes de validación editorial | OK para el paso 3 en la conversación, 2026-10-20 |
 | KOS-DEC-007 | 2026-10-20 | Crear el piloto `KKO-IA-AGENTES-001` en la carpeta existente de conocimiento, sin duplicar KCR | Escritura ejecutada; contenido pendiente de validación humana | OK para el paso 4 en la conversación, 2026-10-20 |
-| KOS-DEC-008 | 2026-10-20 | Prevalidar fuentes y correspondencias del KKO piloto y definir metadatos mínimos reutilizables | Ejecutado; revisión humana y automatización pendientes | OK para el paso 5 en la conversación, 2026-10-20 |
+| KOS-DEC-008 | 2026-10-20 | Prevalidar fuentes y correspondencias del KKO piloto y definir metadatos mínimos reutilizables | Ejecutado; revisión humana pendiente | OK para el paso 5 en la conversación, 2026-10-20 |
+| KOS-DEC-009 | 2026-10-20 | Automatizar comprobación de metadatos KKO en GitHub Actions sin publicar automáticamente | Implementado; primera ejecución CI correcta; revisión humana pendiente | OK para el paso 6 en la conversación, 2026-10-20; [ejecución CI](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39355327384) |
 
 Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes ni evidencia exportada. En una fase posterior deberán incorporarse actas o referencias verificables cuando corresponda.
 
@@ -55,8 +56,8 @@ Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes
 - **KKO:** fuente estructurada de afirmaciones, definiciones, fuentes, vigencia y relaciones.
 - **Derivados:** Academia, KosmoWiki, libro, artículos y otros formatos, cada uno con estado de publicación.
 - **Correspondencias:** [matriz editorial v0.1](docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md), registrada como borrador para revisión humana.
-- **Piloto KKO:** [agentes de IA v0.1.1](knowledge/agentes/KKO-IA-AGENTES-001.md), en estado `review`, con referencias accesibles y correspondencias L10/C10 comprobadas; pendiente de aprobación humana.
-- **Contrato mínimo de metadatos KKO:** [`schemas/kko.schema.json`](schemas/kko.schema.json). Aplica al YAML frontmatter extraído; aún no hay comprobación automática en CI.
+- **Piloto KKO:** [agentes de IA v0.1.2](knowledge/agentes/KKO-IA-AGENTES-001.md), en estado `review`, con fuentes preliminarmente comprobadas y correspondencias L10/C10; pendiente de aprobación humana.
+- **Contrato mínimo de metadatos KKO:** [`schemas/kko.schema.json`](schemas/kko.schema.json). Aplica al YAML frontmatter extraído; la comprobación automática está implantada en [GitHub Actions](.github/workflows/validacion-kko.yml) mediante [`scripts/validate_kko.py`](scripts/validate_kko.py).
 
 Los índices existentes son planes editoriales, no prueba de que todo el contenido esté ya incorporado al repositorio.
 
@@ -77,11 +78,12 @@ Este registro nace **provisionalmente** en el repositorio público `antonioalarc
 
 - **Contrato arquitectónico v0.1 (borrador):** [`docs/arquitectura/KOS-ARCH-0.1.md`](docs/arquitectura/KOS-ARCH-0.1.md). Pendiente de validación humana.
 - **Matriz editorial v0.1 (borrador):** [`docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md`](docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md). Correspondencias de 25 lecciones y 40 capítulos; pendiente de validación humana.
-- **Piloto KKO v0.1.1 (en revisión):** [`knowledge/agentes/KKO-IA-AGENTES-001.md`](knowledge/agentes/KKO-IA-AGENTES-001.md). Fuentes y correspondencias precomprobadas; sin aprobación de publicación.
-- **Contrato mínimo KKO:** [`schemas/kko.schema.json`](schemas/kko.schema.json). Estructura de metadatos, no validación científica ni revisión automática implantada.
-- **Siguiente paso propuesto (pendiente de OK):** implementar una validación automática mínima de metadatos KKO en GitHub Actions; después solicitar revisión humana para aprobar la publicación del piloto.
+- **Piloto KKO v0.1.2 (en revisión):** [`knowledge/agentes/KKO-IA-AGENTES-001.md`](knowledge/agentes/KKO-IA-AGENTES-001.md). Validación técnica superada; sin aprobación de publicación.
+- **Contrato mínimo KKO:** [`schemas/kko.schema.json`](schemas/kko.schema.json). Estructura de metadatos, no validación científica.
+- **Validación CI:** [flujo GitHub Actions](.github/workflows/validacion-kko.yml) y [script Python](scripts/validate_kko.py); comprueba estructura, formatos, identificadores y duplicados en `knowledge/**/KKO-*.md` durante push/PR y ejecución manual. [Primera ejecución correcta](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39355327384).
+- **Siguiente paso propuesto (pendiente de OK):** revisión editorial humana del piloto KKO y autorización explícita de publicación antes de generar la primera vista del libro o KosmoWiki.
 
-**Criterio de cierre del paso 5:** KKO en estado de revisión con fuentes comprobadas, esquema mínimo versionado y registro maestro actualizado. No se afirma que el contenido haya sido aprobado ni que exista aún un pipeline de publicación.
+**Criterio de cierre del paso 6:** archivos de validación registrados, primera ejecución de CI completada correctamente y registro maestro actualizado. La CI no comprueba la veracidad del contenido ni concede permisos de publicación; las protecciones obligatorias de ramas aún no se han configurado.
 
 ---
 

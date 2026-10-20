@@ -1,14 +1,14 @@
 ---
 id: KKO-IA-AGENTES-001
 format_version: 0.1.0
-version: 0.1.4
+version: 0.1.5
 title: "Agentes de inteligencia artificial"
 domain: artificial-intelligence
 status: validated
 created: "2026-10-20"
 updated: "2026-10-20"
 human_review_required: true
-publication_approved: false
+publication_approved: true
 audiences: [citizen, professional, technical]
 course_lessons: [L10]
 book_chapters: [C10]
@@ -22,7 +22,7 @@ related_kcr: []
 
 # Agentes de inteligencia artificial
 
-> **Estado: validado editorialmente por aprobación humana expresa el 2026-10-20.** La aprobación del contenido NO autoriza su publicación como libro, Academia o KosmoWiki. `publication_approved: false`.
+> **Estado: validado editorialmente y autorizada la publicación de sus tres derivados el 2026-10-20.** El KKO es la fuente canónica; su autorización no se extiende automáticamente a derivados futuros ni a un despliegue web externo.
 
 ## Definición
 
@@ -54,7 +54,15 @@ No todos los sistemas requieren planificación abierta: un flujo automatizado co
 - **Inter-IA:** coordina capacidades admitidas para una misión.
 - **PAE / PLAC / HITL:** admisión basada en evidencia, permisos operativos y aprobación humana cuando corresponda; sus reglas detalladas siguen pendientes de formalización.
 
-**Representaciones autorizadas para preparación, NO para publicación:** lección L10 de Academia, capítulo C10 del libro y ficha de KosmoWiki. Todas deben derivarse de este KKO y enlazar a su ID y versión. Su generación pública o despliegue requiere autorización independiente.
+## Representaciones publicadas
+
+Las siguientes representaciones derivan del contenido editorial aprobado en la versión **0.1.4**; esta versión **0.1.5** incorpora exclusivamente la autorización y los enlaces de publicación:
+
+- [Libro · Capítulo C10](../../docs/libro/C10-agentes-ia.md)
+- [Academia · Lección L10](../../docs/academia/L10-agentes-ia.md)
+- [KosmoWiki · Agentes de IA](../../docs/kosmowiki/agentes-ia.md)
+
+Publicación autorizada por «OK» en respuesta a la pregunta expresa del paso 10 de la conversación KosmoTIC, 2026-10-20. Se publican archivos en el repositorio público de GitHub, no una web independiente. La licencia de reutilización permanece pendiente de decisión formal.
 
 ## Fuentes de referencia
 
@@ -71,7 +79,7 @@ No todos los sistemas requieren planificación abierta: un flujo automatizado co
 - [x] Ejemplo práctico, riesgos y relaciones KKO/KCR/Inter-IA.
 - [x] Fuentes y advertencias de vigencia documentadas.
 - [x] Correspondencias L10/C10 revisadas preliminarmente.
-- [x] Aprobación editorial humana expresa de la versión 0.1.3 mediante «OK» en respuesta a la solicitud del paso 8 de la conversación KosmoTIC, 2026-10-20; esta versión 0.1.4 solo registra esa aprobación y aclara su alcance.
-- [ ] Autorización humana expresa de publicación de los derivados.
+- [x] Aprobación editorial humana expresa de la versión 0.1.3 mediante «OK» en el paso 8, registrada en v0.1.4.
+- [x] Autorización humana expresa de publicación de las tres representaciones mediante «OK» en el paso 10, registrada en v0.1.5.
 
-**Regla:** la aprobación editorial no equivale a permiso para distribuir los derivados. El repositorio donde reside este KKO es público: el propio KKO es visible allí, aunque los derivados no se han publicado.
+**Regla:** cualquier nuevo derivado, despliegue externo o ampliación de permisos exige una decisión independiente conforme a la gobernanza aplicable.

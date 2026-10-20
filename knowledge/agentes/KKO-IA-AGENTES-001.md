@@ -1,7 +1,7 @@
 ---
 id: KKO-IA-AGENTES-001
 format_version: 0.1.0
-version: 0.1.2
+version: 0.1.3
 title: "Agentes de inteligencia artificial"
 domain: artificial-intelligence
 status: review
@@ -22,7 +22,7 @@ related_kcr: []
 
 # Agentes de inteligencia artificial
 
-> **Estado: en revisión.** Se ha realizado una comprobación preliminar de coherencia, correspondencias y acceso a fuentes el 2026-10-20. Esto **no** equivale a revisión humana ni a aprobación para publicación.
+> **Estado: en revisión.** La validación técnica y la revisión editorial asistida no equivalen a aprobación humana ni a autorización de publicación.
 
 ## Definición
 
@@ -58,18 +58,21 @@ No todos los sistemas requieren planificación abierta: un flujo automatizado co
 
 ## Fuentes de referencia
 
-1. Anthropic, *Building effective agents* (2024): https://www.anthropic.com/engineering/building-effective-agents — distinción entre agentes y flujos de trabajo. Fuente accesible y revisada preliminarmente el 2026-10-20.
-2. OpenAI, *A practical guide to building agents* (2026): https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — componentes, orquestación y controles. Fuente accesible y revisada preliminarmente el 2026-10-20.
-3. NIST, *AI Risk Management Framework 1.0* (2023): https://doi.org/10.6028/NIST.AI.100-1 — gestión del riesgo de sistemas de IA; **no** es una definición específica de agente. Fuente accesible el 2026-10-20.
+1. Anthropic, *Building effective agents* (2024): https://www.anthropic.com/engineering/building-effective-agents — distinción entre agentes y flujos de trabajo. Fuente revisada el 2026-10-20; el propio artículo advierte que parte de las herramientas descritas han evolucionado desde 2024.
+2. OpenAI, *A practical guide to building agents* (2026): https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/ — componentes, orquestación y controles. Fuente revisada el 2026-10-20.
+3. NIST, *AI Risk Management Framework 1.0* (2023): https://doi.org/10.6028/NIST.AI.100-1 — gestión del riesgo de sistemas de IA; **no** es una definición específica de agente. La publicación original está confirmada en NIST y el marco 1.0 se encuentra en proceso de revisión a fecha 2026-10-20.
 
-## Control de calidad y aprobación
+## Dictamen editorial asistido · 2026-10-20
 
-- [x] Definición conceptual contrastada preliminarmente con fuentes técnicas identificadas.
-- [x] Accesibilidad de las tres referencias comprobada el 2026-10-20.
-- [x] Correspondencias L10/C10 comprobadas contra la matriz editorial existente.
-- [x] Metadatos adaptados al contrato mínimo `schemas/kko.schema.json`.
-- [x] Validación automática del YAML contra JSON Schema en CI: ejecución inicial correcta el 2026-10-20; [ver GitHub Actions](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39355327384).
-- [ ] Revisión y aprobación editorial humana del contenido.
-- [ ] Aprobación expresa para publicar derivados.
+**Recomendación:** apto para someter a aprobación humana como objeto piloto introductorio; no se han detectado contradicciones conceptuales relevantes en el alcance de esta ficha. La revisión no constituye auditoría científica exhaustiva ni valida su aplicación a entornos críticos.
 
-**Regla:** la validación automática solo comprueba metadatos; la existencia de este archivo en GitHub, incluso en estado `review`, no equivale a validación humana ni a autorización de publicación.
+- [x] Definición comprensible para público general y compatible con fuentes consultadas.
+- [x] Diferencia entre agentes y flujos de trabajo expresada sin absolutismos.
+- [x] Ejemplo práctico, riesgos, límites y relaciones KKO/KCR/Inter-IA incluidos.
+- [x] Fuentes técnicas y de gestión de riesgos identificadas; advertencias de vigencia incorporadas.
+- [x] Correspondencias L10/C10 y contrato mínimo de metadatos revisados preliminarmente.
+- [x] Validación automática de metadatos en CI completada en la versión anterior: [ejecución](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39355327384). Esta edición requiere su propia comprobación CI.
+- [ ] Aprobación editorial humana expresa de esta versión.
+- [ ] Autorización humana expresa para generar/publicar derivados.
+
+**Regla:** el contenido permanece en `status: review` y `publication_approved: false` hasta registrar ambas decisiones; una revisión asistida por IA no se presenta como revisión humana.

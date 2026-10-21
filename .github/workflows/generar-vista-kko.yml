@@ -1,0 +1,47 @@
+name: Vista KKO (borrador, sin publicación)
+
+on:
+  push:
+    paths:
+      - "knowledge/**"
+      - "scripts/generate_kko_preview.py"
+      - ".github/workflows/generar-vista-kko.yml"
+  pull_request:
+    paths:
+      - "knowledge/**"
+      - "scripts/generate_kko_preview.py"
+      - ".github/workflows/generar-vista-kko.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generar-borrador:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obtener código
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar lector YAML
+        run: python -m pip install "PyYAML>=6,<7"
+      - name: Generar vista KosmoWiki desde el KKO piloto
+        run: python scripts/generate_kko_preview.py
+      - name: Comprobar que solo se ha generado un borrador
+        run: |
+          test -s dist/preview/kosmowiki/agentes-ia.md
+          grep -q '^status: draft$' dist/preview/kosmowiki/agentes-ia.md
+          grep -q '^publication_approved: false$' dist/preview/kosmowiki/agentes-ia.md
+          grep -q '^source_kko: "KKO-IA-AGENTES-001"$' dist/preview/kosmowiki/agentes-ia.md
+      - name: Guardar borrador para revisión (7 días)
+        uses: actions/upload-artifact@v4
+        with:
+          name: kko-agentes-kosmowiki-borrador
+          path: dist/preview/kosmowiki/agentes-ia.md
+          retention-days: 7
+          if-no-files-found: error
+
+# Solo genera un artefacto de revisión. No hace commit, merge ni despliegue web.

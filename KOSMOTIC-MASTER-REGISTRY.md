@@ -1,7 +1,7 @@
 # KosmoTIC · Registro Maestro
 
 **ID:** KOS-MASTER-REGISTRY  
-**Versión:** 0.1.8  
+**Versión:** 0.1.9  
 **Fecha de alta:** 2026-10-20  
 **Estado:** inicial · en evolución  
 **Custodia inicial:** repositorio `antonioalarcon/kosmotic-inter-ia-capacidades`  
@@ -25,7 +25,7 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | Inter-IA | Selección, contraste y coordinación de capacidades | Base existente; ampliación pendiente |
 | Transformación | Aplicación práctica de resultados | Conceptual |
 | Comunidad | Participación y revisión humana | Conceptual |
-| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Primer piloto validado y tres derivados publicados |
+| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Primer piloto validado y tres derivados publicados; controles de vínculos en CI |
 | KCR | Registro vivo de capacidades, misiones y validaciones | Normalización con estructura existente pendiente |
 | PAE | Admisión de tecnologías basada en utilidad demostrada | Formalización pendiente |
 | PLAC | Límites, permisos y autoridad operativa | Especificación pendiente |
@@ -49,6 +49,7 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | KOS-DEC-010 | 2026-10-20 | Preparar dictamen editorial asistido del KKO piloto, con fuentes contrastadas y recomendación de aprobación | Ejecutado; aprobación humana recibida en paso 8 | OK para iniciar el paso 7 en la conversación, 2026-10-20; [KKO](knowledge/agentes/KKO-IA-AGENTES-001.md) |
 | KOS-DEC-011 | 2026-10-20 | Aprobar editorialmente KKO-IA-AGENTES-001 v0.1.3 y autorizar preparación de representaciones para Libro C10, Academia L10 y KosmoWiki, SIN autorizar su publicación | Aprobación editorial registrada en KKO v0.1.4; derivados preparados | «OK» en respuesta expresa a la solicitud del paso 8, conversación KosmoTIC, 2026-10-20 |
 | KOS-DEC-012 | 2026-10-20 | Autorizar la publicación en el repositorio público de las tres representaciones aprobadas de KKO-IA-AGENTES-001 | Ejecutado: tres archivos Markdown publicados; KKO actualizado a v0.1.5 | «OK» en respuesta expresa a la pregunta del paso 10, conversación KosmoTIC, 2026-10-20 |
+| KOS-DEC-013 | 2026-10-21 | Comprobar automáticamente enlaces locales y relaciones bidireccionales KKO ↔ derivados, ampliando la CI existente | Implementado; resultado de ejecución CI debe comprobarse en el último commit | «OK, el paso 11», conversación KosmoTIC, 2026-10-21; [flujo CI](.github/workflows/validacion-kko.yml) |
 
 Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes ni evidencia exportada. En una fase posterior deberán incorporarse actas o referencias verificables cuando corresponda.
 
@@ -64,8 +65,9 @@ Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes
 - **Derivado Academia L10:** [lección del chatbot al agente](docs/academia/L10-agentes-ia.md).
 - **Derivado KosmoWiki:** [ficha agentes de IA](docs/kosmowiki/agentes-ia.md).
 - **Contrato mínimo de metadatos KKO:** [`schemas/kko.schema.json`](schemas/kko.schema.json). Aplica al YAML frontmatter extraído; la comprobación automática está implantada en [GitHub Actions](.github/workflows/validacion-kko.yml) mediante [`scripts/validate_kko.py`](scripts/validate_kko.py).
+- **Control de relaciones:** [`scripts/validate_kko_links.py`](scripts/validate_kko_links.py) comprueba enlaces Markdown locales, existencia de KKO de origen, vínculo de ida y vuelta y permiso de publicación en derivados; integrado en el mismo flujo de CI.
 
-Los índices existentes son planes editoriales, no prueba de que todo el contenido esté ya incorporado al repositorio. La publicación de Markdown en GitHub no equivale al despliegue de una web o una plataforma educativa.
+Los índices existentes son planes editoriales, no prueba de que todo el contenido esté ya incorporado al repositorio. La publicación de Markdown en GitHub no equivale al despliegue de una web o una plataforma educativa. El control de enlaces locales no verifica URLs externas ni exactitud científica.
 
 ## 5. Reglas de versionado y cambio
 
@@ -87,10 +89,10 @@ Este registro nace **provisionalmente** en el repositorio público `antonioalarc
 - **Piloto KKO v0.1.5:** [`knowledge/agentes/KKO-IA-AGENTES-001.md`](knowledge/agentes/KKO-IA-AGENTES-001.md). Contenido editorial aprobado y derivados publicados en GitHub.
 - **Representaciones públicas:** [Libro C10](docs/libro/C10-agentes-ia.md), [Academia L10](docs/academia/L10-agentes-ia.md) y [KosmoWiki](docs/kosmowiki/agentes-ia.md).
 - **Contrato mínimo KKO:** [`schemas/kko.schema.json`](schemas/kko.schema.json). Estructura de metadatos, no validación científica.
-- **Validación CI:** [flujo GitHub Actions](.github/workflows/validacion-kko.yml) y [script Python](scripts/validate_kko.py). Revisar el estado de la CI del último commit antes de declarar validación técnica final.
-- **Siguiente paso propuesto:** verificar enlaces y validación CI del piloto publicado; después evaluar generación automática de derivados desde KKO, sin introducir infraestructura adicional innecesaria.
+- **Validación CI:** [flujo GitHub Actions](.github/workflows/validacion-kko.yml), [metadatos](scripts/validate_kko.py) y [enlaces/trazabilidad](scripts/validate_kko_links.py). Consultar la [ejecución del paso 11](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39630733190) antes de declarar el cierre técnico.
+- **Siguiente paso propuesto:** probar generación determinista de una representación desde un KKO, con revisión humana y sin publicación externa automática.
 
-**Criterio de cierre del paso 10:** publicación de tres archivos aprobados, enlaces cruzados y registro de la decisión, sin despliegue externo ni concesión de licencia abierta.
+**Criterio de cierre del paso 11:** comprobación satisfactoria de GitHub Actions para el validador de metadatos y enlaces, tras el último cambio pertinente; no se han generado ni publicado nuevos derivados.
 
 ---
 

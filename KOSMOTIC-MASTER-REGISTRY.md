@@ -1,7 +1,7 @@
 # KosmoTIC · Registro Maestro
 
 **ID:** KOS-MASTER-REGISTRY  
-**Versión:** 0.1.10  
+**Versión:** 0.1.11  
 **Fecha de alta:** 2026-10-20  
 **Estado:** inicial · en evolución  
 **Custodia inicial:** repositorio `antonioalarcon/kosmotic-inter-ia-capacidades`  
@@ -19,13 +19,13 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | Componente | Función | Estado de definición |
 | --- | --- | --- |
 | Academia | Aprendizaje estructurado y accesible | Primera representación L10 publicada como Markdown |
-| KosmoWiki | Consulta y representación del conocimiento | Primera ficha publicada como Markdown; generación de borrador automatizada |
+| KosmoWiki | Consulta y representación del conocimiento | Primera ficha publicada como Markdown; generación de borrador automatizada y comparada |
 | Observatorio | Seguimiento de cambios, fuentes y señales | Conceptual |
 | Laboratorio | Experimentos y evaluación reproducible | Conceptual |
 | Inter-IA | Selección, contraste y coordinación de capacidades | Base existente; ampliación pendiente |
 | Transformación | Aplicación práctica de resultados | Conceptual |
 | Comunidad | Participación y revisión humana | Conceptual |
-| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Primer piloto validado y tres derivados publicados; controles de vínculos en CI; primera generación automática de borrador |
+| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Primer piloto validado y tres derivados publicados; controles de vínculos en CI; generación automática de borrador revisada |
 | KCR | Registro vivo de capacidades, misiones y validaciones | Normalización con estructura existente pendiente |
 | PAE | Admisión de tecnologías basada en utilidad demostrada | Formalización pendiente |
 | PLAC | Límites, permisos y autoridad operativa | Especificación pendiente |
@@ -51,6 +51,7 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | KOS-DEC-012 | 2026-10-20 | Autorizar la publicación en el repositorio público de las tres representaciones aprobadas de KKO-IA-AGENTES-001 | Ejecutado: tres archivos Markdown publicados; KKO actualizado a v0.1.5 | «OK» en respuesta expresa a la pregunta del paso 10, conversación KosmoTIC, 2026-10-20 |
 | KOS-DEC-013 | 2026-10-21 | Comprobar automáticamente enlaces locales y relaciones bidireccionales KKO ↔ derivados, ampliando la CI existente | Implementado; resultado de ejecución CI debe comprobarse en el último commit | «OK, el paso 11», conversación KosmoTIC, 2026-10-21; [flujo CI](.github/workflows/validacion-kko.yml) |
 | KOS-DEC-014 | 2026-10-22 | Generar automáticamente una vista KosmoWiki temporal desde KKO-IA-AGENTES-001, sin commit ni publicación web automática | Implementado; primer trabajo GitHub Actions correcto; artefacto de revisión disponible 7 días | «OK paso 12», conversación KosmoTIC, 2026-10-21 (UTC); [ejecución](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39689054916) |
+| KOS-DEC-015 | 2026-10-22 | Comparar vista automática con ficha KosmoWiki publicada y conservar la generación como borrador extendido, sin sustituir ni publicar automáticamente | Revisión estructural completada; no se requieren cambios de código para el piloto; validación de equivalencia editorial exhaustiva pendiente | «OK» para el paso 13, conversación KosmoTIC, 2026-10-22; [generador](scripts/generate_kko_preview.py), [ficha publicada](docs/kosmowiki/agentes-ia.md) |
 
 Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes ni evidencia exportada. En una fase posterior deberán incorporarse actas o referencias verificables cuando corresponda.
 
@@ -68,6 +69,7 @@ Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes
 - **Contrato mínimo de metadatos KKO:** [`schemas/kko.schema.json`](schemas/kko.schema.json). Aplica al YAML frontmatter extraído; la comprobación automática está implantada en [GitHub Actions](.github/workflows/validacion-kko.yml) mediante [`scripts/validate_kko.py`](scripts/validate_kko.py).
 - **Control de relaciones:** [`scripts/validate_kko_links.py`](scripts/validate_kko_links.py) comprueba enlaces Markdown locales, existencia de KKO de origen, vínculo de ida y vuelta y permiso de publicación en derivados; integrado en el mismo flujo de CI.
 - **Generación editorial piloto:** [`scripts/generate_kko_preview.py`](scripts/generate_kko_preview.py) extrae secciones del KKO canónico y produce una ficha KosmoWiki temporal en `dist/preview/`. El [flujo de generación](.github/workflows/generar-vista-kko.yml) conserva el borrador como artefacto de Actions durante 7 días; no hace commits, despliegues ni cambios en las tres representaciones ya publicadas.
+- **Comparación editorial (paso 13):** la ficha publicada es una síntesis breve basada en KKO v0.1.4; el generador toma secciones completas del KKO actual v0.1.5 y crea una vista más extensa. Comparten tema, definición operativa, riesgos, gobernanza y referencia al KKO, pero **no son textualmente equivalentes**. Diferencias esperadas: longitud, encabezados, versión de origen, fuentes desplegadas y metadatos `draft`/`published`. No se ha detectado necesidad de cambiar el generador para el piloto; la vista automática sigue siendo un borrador, no una actualización aprobada de la ficha pública. Esta es una comparación estructural de los textos y la lógica de generación, no una certificación de equivalencia semántica de todas las afirmaciones.
 
 Los índices existentes son planes editoriales, no prueba de que todo el contenido esté ya incorporado al repositorio. La publicación de Markdown en GitHub no equivale al despliegue de una web o una plataforma educativa. El control de enlaces locales no verifica URLs externas ni exactitud científica.
 
@@ -93,9 +95,10 @@ Este registro nace **provisionalmente** en el repositorio público `antonioalarc
 - **Contrato mínimo KKO:** [`schemas/kko.schema.json`](schemas/kko.schema.json). Estructura de metadatos, no validación científica.
 - **Validación CI:** [flujo GitHub Actions](.github/workflows/validacion-kko.yml), [metadatos](scripts/validate_kko.py) y [enlaces/trazabilidad](scripts/validate_kko_links.py). Consultar la [ejecución del paso 11](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39630733190) antes de declarar el cierre técnico.
 - **Generación automática de borrador (paso 12):** [script](scripts/generate_kko_preview.py), [flujo](.github/workflows/generar-vista-kko.yml) y [ejecución correcta](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39689054916). Solo produce un artefacto temporal para revisión, no publica una nueva ficha.
-- **Siguiente paso propuesto:** revisar el borrador generado frente al KKO y decidir si se incorpora la generación al flujo editorial de KosmoWiki; no automatizar la publicación sin autorización humana.
+- **Resultado paso 13:** revisión estructural del borrador frente a la ficha pública; se mantiene el generador y el control humano. No se altera la ficha publicada ni se crean nuevos derivados.
+- **Siguiente paso propuesto (14):** probar el mismo generador con un segundo KKO, para comprobar reutilización antes de automatizar más formatos. Requiere nueva aprobación humana; no hay autorización para publicación automática.
 
-**Criterio de cierre del paso 12:** primera ejecución satisfactoria de generación y controles de borrador en GitHub Actions; ninguna publicación web o cambio de contenido canónico.
+**Criterio de cierre del paso 13:** comparación documentada, decisión de mantener una vista extendida como borrador, sin cambios en el contenido canónico ni en publicaciones existentes.
 
 ---
 

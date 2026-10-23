@@ -1,3 +1,16 @@
+---
+id: KOS-CITY-FORM-ATG
+version: "0.1"
+title: "KosmoTIC City · Arquitecto Tecnológico Global"
+status: draft
+classification: BERO-institucional
+source_of_truth: "Google Drive: 1LXAy1xhRMEjcElvMHx09FxoEpaDZ2Xuu"
+source_version: "V0.1"
+representation: "curricular-draft"
+publication_scope: "github-documentation-only"
+publication_authorized: "2026-10-23"
+---
+
 # KosmoTIC City · Arquitecto Tecnológico Global
 ## Borrador de diseño curricular para desarrollo futuro
 

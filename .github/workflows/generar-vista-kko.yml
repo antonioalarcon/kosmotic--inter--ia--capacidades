@@ -35,18 +35,20 @@ jobs:
           test -s dist/preview/kosmowiki/agentes-ia.md
           grep -q '^status: draft$' dist/preview/kosmowiki/agentes-ia.md
           grep -q '^publication_approved: false$' dist/preview/kosmowiki/agentes-ia.md
+          grep -q '^human_review_required: true$' dist/preview/kosmowiki/agentes-ia.md
           grep -q '^source_kko: "KKO-IA-AGENTES-001"$' dist/preview/kosmowiki/agentes-ia.md
-      - name: Generar segunda vista temporal desde KKO no validado
+      - name: Generar segunda vista temporal desde KKO en revisión
         run: |
           python scripts/generate_kko_preview.py \
             --kko knowledge/modelos/KKO-IA-LLM-001.md \
             --output dist/preview/kosmowiki/modelos-lenguaje.md \
-            --allow-draft
+            --allow-review
       - name: Comprobar segundo borrador y bloqueo de publicación
         run: |
           test -s dist/preview/kosmowiki/modelos-lenguaje.md
           grep -q '^status: draft$' dist/preview/kosmowiki/modelos-lenguaje.md
           grep -q '^publication_approved: false$' dist/preview/kosmowiki/modelos-lenguaje.md
+          grep -q '^human_review_required: true$' dist/preview/kosmowiki/modelos-lenguaje.md
           grep -q '^source_kko: "KKO-IA-LLM-001"$' dist/preview/kosmowiki/modelos-lenguaje.md
       - name: Guardar borradores para revisión (7 días)
         uses: actions/upload-artifact@v4

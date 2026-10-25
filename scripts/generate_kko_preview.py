@@ -21,7 +21,7 @@ SECTIONS = (
 )
 
 
-def load_kko(path, allow_draft=False):
+def load_kko(path, allow_draft=False, allow_review=False):
     raw = path.read_text(encoding="utf-8-sig")
     match = re.match(r"\A---\s*\n(.*?)\n---\s*\n", raw, re.S)
     if not match:
@@ -30,8 +30,16 @@ def load_kko(path, allow_draft=False):
     if not isinstance(meta, dict) or not all(meta.get(k) for k in ("id", "version", "title")):
         raise ValueError("Faltan id, version o title en el KKO")
     status = meta.get("status")
-    if status != "validated" and not (allow_draft and status == "draft"):
-        raise ValueError("Solo se generan vistas de KKO validados; para pruebas de borradores use --allow-draft")
+    allowed = (
+        status == "validated"
+        or (allow_draft and status == "draft")
+        or (allow_review and status == "review")
+    )
+    if not allowed:
+        raise ValueError(
+            "Vista temporal bloqueada: use un KKO validated, "
+            "--allow-draft para draft o --allow-review para review"
+        )
     body = raw[match.end():]
     headers = list(re.finditer(r"(?m)^## (.+?)\s*$", body))
     sections = {}
@@ -49,14 +57,34 @@ def main():
     parser.add_argument("--kko", default=DEFAULT_KKO, help="Ruta del KKO dentro de knowledge/")
     parser.add_argument("--output", default=DEFAULT_OUTPUT, help="Salida temporal dentro de dist/preview/")
     parser.add_argument("--allow-draft", action="store_true", help="Permitir KKO en draft solo para una vista temporal de revisión")
+    parser.add_argument("--allow-review", action="store_true", help="Permitir KKO en review solo para una vista temporal; no autoriza publicación")
     args = parser.parse_args()
-    source = (ROOT / args.kko).resolve()
-    target = (ROOT / args.output).resolve()
-    if not source.is_relative_to((ROOT / "knowledge").resolve()):
-        parser.error("El KKO debe estar en knowledge/")
-    if not target.is_relative_to((ROOT / "dist/preview").resolve()):
+    source_path = ROOT / args.kko
+    target_path = ROOT / args.output
+    knowledge_root = ROOT / "knowledge"
+    preview_root = ROOT / "dist/preview"
+    # No aceptar raices redirigidas por enlaces simbolicos.
+    if knowledge_root.resolve() != knowledge_root:
+        parser.error("knowledge/ no puede estar redirigido por enlaces simbolicos")
+    if preview_root.resolve() != preview_root:
+        parser.error("dist/preview/ no puede estar redirigido por enlaces simbolicos")
+    # Rechazar enlaces en la ruta de salida antes de crear o sobrescribir nada.
+    if any(path.is_symlink() for path in (target_path, *target_path.parents)):
+        parser.error("La ruta de salida no puede contener enlaces simbolicos")
+    source = source_path.resolve()
+    target = target_path.resolve()
+    if not source.is_relative_to(knowledge_root) or not source.is_file():
+        parser.error("El KKO debe ser un archivo dentro de knowledge/")
+    if not target.is_relative_to(preview_root) or target == preview_root:
         parser.error("La salida debe permanecer en dist/preview/; nunca en docs/ o web/")
-    meta, sections = load_kko(source, allow_draft=args.allow_draft)
+    if target.exists():
+        if not target.is_file():
+            parser.error("La salida existente debe ser un archivo regular")
+        if target.samefile(source) or target.stat().st_nlink > 1:
+            parser.error("La salida no puede compartir archivo con otra ruta")
+    meta, sections = load_kko(
+        source, allow_draft=args.allow_draft, allow_review=args.allow_review
+    )
     rel_source = source.relative_to(ROOT).as_posix()
     parts = [
         "---",
@@ -67,6 +95,7 @@ def main():
         "representation: kosmowiki",
         "status: draft",
         "generated: true",
+        "human_review_required: true",
         "publication_approved: false",
         "---",
         "",

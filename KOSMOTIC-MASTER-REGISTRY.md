@@ -1,7 +1,7 @@
 # KosmoTIC · Registro Maestro
 
 **ID:** KOS-MASTER-REGISTRY  
-**Versión:** 0.1.11  
+**Versión:** 0.1.12  
 **Fecha de alta:** 2026-10-20  
 **Estado:** inicial · en evolución  
 **Custodia inicial:** repositorio `antonioalarcon/kosmotic-inter-ia-capacidades`  
@@ -25,7 +25,7 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | Inter-IA | Selección, contraste y coordinación de capacidades | Base existente; ampliación pendiente |
 | Transformación | Aplicación práctica de resultados | Conceptual |
 | Comunidad | Participación y revisión humana | Conceptual |
-| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Primer piloto validado y tres derivados publicados; controles de vínculos en CI; generación automática de borrador revisada |
+| KKO | Objetos canónicos de conocimiento, con evidencia y versiones | Primer piloto validado y tres derivados publicados; segundo KKO LLM en borrador incorporado a main; controles de vínculos en CI |
 | KCR | Registro vivo de capacidades, misiones y validaciones | Normalización con estructura existente pendiente |
 | PAE | Admisión de tecnologías basada en utilidad demostrada | Formalización pendiente |
 | PLAC | Límites, permisos y autoridad operativa | Especificación pendiente |
@@ -52,8 +52,9 @@ Mantener una referencia versionada y auditable de la visión, decisiones aprobad
 | KOS-DEC-013 | 2026-10-21 | Comprobar automáticamente enlaces locales y relaciones bidireccionales KKO ↔ derivados, ampliando la CI existente | Implementado; resultado de ejecución CI debe comprobarse en el último commit | «OK, el paso 11», conversación KosmoTIC, 2026-10-21; [flujo CI](.github/workflows/validacion-kko.yml) |
 | KOS-DEC-014 | 2026-10-22 | Generar automáticamente una vista KosmoWiki temporal desde KKO-IA-AGENTES-001, sin commit ni publicación web automática | Implementado; primer trabajo GitHub Actions correcto; artefacto de revisión disponible 7 días | «OK paso 12», conversación KosmoTIC, 2026-10-21 (UTC); [ejecución](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39689054916) |
 | KOS-DEC-015 | 2026-10-22 | Comparar vista automática con ficha KosmoWiki publicada y conservar la generación como borrador extendido, sin sustituir ni publicar automáticamente | Revisión estructural completada; no se requieren cambios de código para el piloto; validación de equivalencia editorial exhaustiva pendiente | «OK» para el paso 13, conversación KosmoTIC, 2026-10-22; [generador](scripts/generate_kko_preview.py), [ficha publicada](docs/kosmowiki/agentes-ia.md) |
-| KOS-DEC-016 | 2026-10-23 | Publicar como réplica documental N+N el borrador curricular `KOS-CITY-FORM-ATG` V0.1 en `docs/academia/arquitecto-tecnologico-global/`, manteniendo Google Drive/BERO como fuente canónica; no activar sitio, matriculación ni acreditación | Ejecutado en GitHub; texto curricular conservado y metadatos YAML técnicos añadidos; CI superada | Autorización expresa de Antonio Alarcón Izquierdo ✔️ en conversación 23/10/2026; [PR #9](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/pull/9); [fuente Drive](https://drive.google.com/file/d/1LXAy1xhRMEjcElvMHx09FxoEpaDZ2Xuu/view) |
+| KOS-DEC-016 | 2026-10-23 | Publicar como réplica documental N+N el borrador curricular `KOS-CITY-FORM-ATG` V0.1 en `docs/academia/arquitecto-tecnologico-global/`, manteniendo Google Drive/BERO como fuente canónica; no activar sitio, matriculación ni acreditación | Ejecutado en GitHub; texto curricular conservado y metadatos YAML técnicos añadidos; CI superada | Autorización expresa del titular en conversación 23/10/2026; [PR #9](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/pull/9); [fuente Drive](https://drive.google.com/file/d/1LXAy1xhRMEjcElvMHx09FxoEpaDZ2Xuu/view) |
 | KOS-DEC-017 | 2026-10-23 | Ratificar Carta Fundacional Inter-IA V1.0 en Drive y autorizar su ficha pública minimizada y enlaces del mapa técnico GitHub | Ratificación verificada; representación derivada publicada con trazabilidad de commits; sin concesión de permisos ni despliegue web | Orden expresa del titular el 23/10/2026; [fuente Drive](https://docs.google.com/document/d/1KJZV0rvDYFz64tAVglgD0USfSJJg5zucLewa3_2kCNo/edit); [ficha](docs/inter-ia/carta-fundacional-v1.0.md) |
+| KOS-DEC-018 | 2026-10-25 | Paso 15: incorporar a `main` el segundo KKO de LLM y la prueba de dos borradores KosmoWiki, manteniendo el contenido LLM en `draft` y sin autorización de publicación editorial ni despliegue web | [PR #8](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/pull/8) fusionado por squash; pruebas de la rama superadas; revisión editorial definitiva pendiente | «Ok, Mas» como continuación y autorización del paso 15 en conversación KosmoTIC, 2026-10-25; [commit](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/commit/56c5fe215cf5be418f74107203852c5e5ea41f7b) |
 
 Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes ni evidencia exportada. En una fase posterior deberán incorporarse actas o referencias verificables cuando corresponda.
 
@@ -65,6 +66,7 @@ Las referencias a conversaciones son trazas descriptivas, no enlaces permanentes
 - **Derivados:** Academia, KosmoWiki, libro, artículos y otros formatos, cada uno con estado de publicación.
 - **Correspondencias:** [matriz editorial v0.1](docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md), registrada como borrador para revisión humana.
 - **Piloto KKO:** [agentes de IA v0.1.5](knowledge/agentes/KKO-IA-AGENTES-001.md), aprobado editorialmente y con publicación de tres representaciones autorizada.
+- **Segundo KKO piloto:** [modelos de lenguaje v0.1.0](knowledge/modelos/KKO-IA-LLM-001.md), incorporado a `main` como `draft`, sin aprobación de publicación. El generador produce dos borradores temporales bajo control humano.
 - **Derivado Libro C10:** [capítulo sobre agentes](docs/libro/C10-agentes-ia.md).
 - **Derivado Academia L10:** [lección del chatbot al agente](docs/academia/L10-agentes-ia.md).
 - **Derivado KosmoWiki:** [ficha agentes de IA](docs/kosmowiki/agentes-ia.md).
@@ -95,14 +97,16 @@ Este registro nace **provisionalmente** en el repositorio público `antonioalarc
 - **Contrato arquitectónico v0.1 (borrador):** [`docs/arquitectura/KOS-ARCH-0.1.md`](docs/arquitectura/KOS-ARCH-0.1.md). Pendiente de validación humana.
 - **Matriz editorial v0.1 (borrador):** [`docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md`](docs/arquitectura/KOS-MAP-EDITORIAL-0.1.md). Correspondencias de 25 lecciones y 40 capítulos; pendiente de validación humana.
 - **Piloto KKO v0.1.5:** [`knowledge/agentes/KKO-IA-AGENTES-001.md`](knowledge/agentes/KKO-IA-AGENTES-001.md). Contenido editorial aprobado y derivados publicados en GitHub.
+- **Segundo KKO v0.1.0:** [`knowledge/modelos/KKO-IA-LLM-001.md`](knowledge/modelos/KKO-IA-LLM-001.md). Borrador técnico en `main`, pendiente de revisión y aprobación editorial; [PR #8](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/pull/8).
 - **Representaciones públicas:** [Libro C10](docs/libro/C10-agentes-ia.md), [Academia L10](docs/academia/L10-agentes-ia.md) y [KosmoWiki](docs/kosmowiki/agentes-ia.md).
 - **Contrato mínimo KKO:** [`schemas/kko.schema.json`](schemas/kko.schema.json). Estructura de metadatos, no validación científica.
 - **Validación CI:** [flujo GitHub Actions](.github/workflows/validacion-kko.yml), [metadatos](scripts/validate_kko.py) y [enlaces/trazabilidad](scripts/validate_kko_links.py). Consultar la [ejecución del paso 11](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39630733190) antes de declarar el cierre técnico.
 - **Generación automática de borrador (paso 12):** [script](scripts/generate_kko_preview.py), [flujo](.github/workflows/generar-vista-kko.yml) y [ejecución correcta](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/actions/runs/39689054916). Solo produce un artefacto temporal para revisión, no publica una nueva ficha.
 - **Resultado paso 13:** revisión estructural del borrador frente a la ficha pública; se mantiene el generador y el control humano. No se altera la ficha publicada ni se crean nuevos derivados.
-- **Siguiente paso propuesto (14):** probar el mismo generador con un segundo KKO, para comprobar reutilización antes de automatizar más formatos. Requiere nueva aprobación humana; no hay autorización para publicación automática.
+- **Resultado pasos 14–15:** dos KKO probados con el mismo generador; [PR #8](https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/pull/8) incorporado a `main`. La vista LLM y su KKO siguen en borrador, sin autorización de publicación editorial o despliegue web.
+- **Siguiente paso propuesto (16):** revisión editorial del KKO LLM y decisión humana explícita sobre validación; no modificar automáticamente su estado ni generar derivados públicos.
 
-**Criterio de cierre del paso 13:** comparación documentada, decisión de mantener una vista extendida como borrador, sin cambios en el contenido canónico ni en publicaciones existentes.
+**Criterio de cierre del paso 15:** cambios técnicos incorporados a `main`, pruebas de rama revisadas, trazabilidad actualizada y publicación automática desactivada.
 
 ---
 

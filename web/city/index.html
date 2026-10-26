@@ -30,6 +30,8 @@
     .lesson ol{padding-left:22px}.lesson li{margin-bottom:8px}details{border:1px solid #4b7a76;border-radius:12px;padding:12px 16px;margin-top:14px}
     summary{cursor:pointer;font-weight:700}details p{margin-top:15px}
     .note{font-size:.92rem;color:var(--soft);border-left:3px solid var(--cyan);padding-left:16px;margin-top:27px}
+    .inventory-list{columns:3;column-gap:25px;padding-left:26px}.inventory-list li{break-inside:avoid;margin-bottom:7px}
+    @media(max-width:800px){.inventory-list{columns:2}}@media(max-width:520px){.inventory-list{columns:1}}
     footer{border-top:1px solid var(--line);padding:35px 0 60px;color:var(--soft);font-size:.85rem}
     @media(max-width:800px){.grid,.grid.two{grid-template-columns:1fr}.hero{padding:56px 0}.shell{padding:0 18px}main section{padding:45px 0}.navlinks{gap:9px 16px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -89,9 +91,30 @@
     <div class="tag">Inter-IA</div>
     <h2>Distintas inteligencias artificiales, un propósito compartido.</h2>
     <p class="sub">Inter-IA es el marco de KosmoTIC para estudiar, comparar y coordinar capacidades de diferentes sistemas de inteligencia artificial bajo supervisión humana.</p>
-    <h3>Metacerebro · Inventario de IA</h3>
-    <p>Estamos preparando una vista del inventario documental de 24 referencias principales de IA, distinguiendo lo documentado, lo probado y lo pendiente de verificar. Incluir una herramienta no significa que esté conectada ni homologada.</p>
-    <p class="note">En preparación</p>
+    <div id="metacerebro">
+      <div class="tag">Metacerebro · En obras 👷🏽‍♂️🏗️⚒️</div>
+      <h3>Una arquitectura cooperativa con criterio humano</h3>
+      <p>El Metacerebro Inter-IA es una arquitectura cognitiva y metacognitiva federada en evolución. Investiga, compara y coordina capacidades conforme a permisos, evidencias y decisiones humanas. No es una única superinteligencia ni acredita una conexión automática entre todos los asistentes.</p>
+      <h3>Seis funciones compartidas</h3>
+      <div class="grid two">
+        <article class="card"><h3>Coordinación</h3><p>Entender objetivos, organizar tareas y seleccionar recursos adecuados.</p></article>
+        <article class="card"><h3>Memoria y fuentes</h3><p>Contexto, versiones, procedencia y acceso autorizado a la información.</p></article>
+        <article class="card"><h3>Interoperabilidad</h3><p>Conectores y protocolos evaluados individualmente antes de utilizarlos.</p></article>
+        <article class="card"><h3>Metacognición</h3><p>Contrastar respuestas, detectar fallos y proponer mejoras verificables.</p></article>
+        <article class="card"><h3>Gobernanza</h3><p>Autoridad humana, permisos por acción, privacidad y auditoría.</p></article>
+        <article class="card"><h3>Continuidad N+1/N+N</h3><p>Versionado, redundancia proporcionada y recuperación comprobable.</p></article>
+      </div>
+      <p class="note">Funciones arquitectónicas definidas; su disponibilidad técnica e integración se acredita caso por caso.</p>
+    </div>
+    <div id="inventario" class="card" style="margin-top:30px">
+      <div class="tag">Inventario de IA · 24 referencias documentales</div>
+      <h3>Familias, proveedores y ecosistemas</h3>
+      <p>Estas 24 referencias conservan el orden canónico ratificado. <strong>No son 24 IA conectadas, probadas u homologadas.</strong> Los modelos y versiones pertenecen a su referencia de origen, sin doble cómputo.</p>
+      <details open><summary>Consultar las 24 referencias</summary>
+      <ol class="inventory-list"><li>ChatGPT / OpenAI</li><li>DeepSeek</li><li>Claude / Anthropic</li><li>Gemini / Google</li><li>Qwen Chat / Alibaba</li><li>Mistral / Le Chat</li><li>Perplexity</li><li>Copilot / Microsoft</li><li>Meta AI / Meta</li><li>Grok / xAI</li><li>Kimi / Moonshot AI</li><li>Cohere / North</li><li>Z.ai / GLM</li><li>AWS Bedrock / AgentCore</li><li>Hugging Face</li><li>Poe</li><li>Reflection AI</li><li>Manus</li><li>IBM / watsonx Orchestrate</li><li>MiniMax</li><li>Doubao / Seed</li><li>Llama</li><li>Hunyuan</li><li>Nemotron</li></ol></details>
+      <p><strong>En desarrollo:</strong> inventario de modelos y versiones → evaluación de capacidades → auditoría y homologación → mapas verificados. La primera revisión documental es parcial.</p>
+      <p class="note">Vista pública derivada del censo Inter-IA, revisión del 24/10/2026. El original permanece restringido; ni su enlace ni su contenido íntegro se publican.</p>
+    </div>
   </div></section>
 </main>
 <!-- Reserva editorial inerte para futuras areas. No se muestra ni habilita accesos. -->

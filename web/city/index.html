@@ -30,6 +30,11 @@
     .lesson ol{padding-left:22px}.lesson li{margin-bottom:8px}details{border:1px solid #4b7a76;border-radius:12px;padding:12px 16px;margin-top:14px}
     summary{cursor:pointer;font-weight:700}details p{margin-top:15px}
     .note{font-size:.92rem;color:var(--soft);border-left:3px solid var(--cyan);padding-left:16px;margin-top:27px}
+    .route{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:20px 0 24px;color:var(--soft)}.route strong{color:var(--ink)}.route .arrow{color:var(--lime)}
+    .map-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.map-links a{display:block;padding:15px;border-radius:12px;border:1px solid var(--line);background:var(--panel);text-decoration:none;color:var(--ink);font-weight:650}
+    .map-links a:hover{border-color:var(--cyan)}.map-links small{display:block;color:var(--soft);font-size:.8rem;font-weight:400}
+    .subarea{border-left:3px solid var(--cyan);padding-left:15px;margin-top:22px}.subarea ul{padding-left:20px}.subarea li{margin:8px 0}
+    @media(max-width:800px){.map-links{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.map-links{grid-template-columns:1fr}}
     .inventory-list{columns:3;column-gap:25px;padding-left:26px}.inventory-list li{break-inside:avoid;margin-bottom:7px}
     @media(max-width:800px){.inventory-list{columns:2}}@media(max-width:520px){.inventory-list{columns:1}}
     footer{border-top:1px solid var(--line);padding:35px 0 60px;color:var(--soft);font-size:.85rem}
@@ -42,7 +47,7 @@
   <nav class="shell" aria-label="Navegación principal">
     <a class="brand" href="#inicio">KosmoTIC<span> City</span></a>
     <div class="navlinks">
-      <a href="#inicio">Inicio</a><a href="#kosmotic">KosmoTIC</a><a href="#inter-ia">Inter-IA</a><a href="#practica">Práctica abierta</a><a href="#areas">Áreas en obras</a>
+      <a href="#inicio">Inicio</a><a href="#mapa">Mapa de la ciudad</a><a href="#kosmotic">KosmoTIC</a><a href="#inter-ia">Inter-IA</a><a href="#inventario">Inventario IA</a><a href="#practica">Práctica abierta</a><a href="#areas">Áreas en obras 👷🏽‍♂️</a>
     </div>
   </nav>
 </header>
@@ -60,6 +65,24 @@
   </div>
 </div>
 <main>
+  <section id="mapa" aria-labelledby="mapa-titulo"><div class="shell">
+    <div class="tag">Orientación · Mapa visible del piloto</div>
+    <h2 id="mapa-titulo">Descubre la estructura de KosmoTIC City</h2>
+    <p class="sub">KosmoTIC es el marco de propósito; Inter-IA desarrolla la cooperación entre inteligencias artificiales; KosmoTIC City proyecta conocimiento y oportunidades hacia la sociedad. Su aparición en la navegación es funcional, no una alteración de la jerarquía fundacional.</p>
+    <div class="route" aria-label="Jerarquía conceptual"><strong>Origen humano</strong><span class="arrow" aria-hidden="true">→</span><strong>KosmoTIC</strong><span class="arrow" aria-hidden="true">→</span><strong>Inter-IA</strong><span class="arrow" aria-hidden="true">→</span><strong>KosmoTIC City</strong></div>
+    <nav class="map-links" aria-label="Mapa de contenidos de KosmoTIC City">
+      <a href="#inicio">01 · Inicio<small>Presentación · Piloto accesible</small></a>
+      <a href="#kosmotic">02 · KosmoTIC<small>Propósito, valores y La Génesis</small></a>
+      <a href="#inter-ia">03 · Inter-IA<small>Metacerebro e inventario de 24 referencias</small></a>
+      <a href="#academia-city">04 · Academia y cursos<small>👷🏽‍♂️🏗️⚒️ En obras · Práctica L10 disponible</small></a>
+      <a href="#biblioteca-city">05 · Biblioteca<small>👷🏽‍♂️🏗️⚒️ En obras · Conocimiento y recursos</small></a>
+      <a href="#proyectos-city">06 · Proyectos<small>👷🏽‍♂️🏗️⚒️ En obras · Investigación e innovación</small></a>
+      <a href="#comunidad-city">07 · Comunidad<small>👷🏽‍♂️🏗️⚒️ En obras · Cooperación profesional</small></a>
+      <a href="#negocios-city">Centro de Negocios en Red<small>👷🏽‍♂️🏗️⚒️ Dentro de Comunidad</small></a>
+      <a href="#membresias-city">Membresías<small>👷🏽‍♂️🏗️⚒️ Estudio, sin contratación abierta</small></a>
+    </nav>
+    <p class="note">Navegar por un área no significa que su servicio esté activado. El inventario es documental; los contenidos y accesos futuros avanzarán con revisión humana, privacidad y comprobaciones técnicas.</p>
+  </div></section>
   <section id="kosmotic"><div class="shell">
     <div class="tag">KosmoTIC</div>
     <h2>Tecnología con propósito y criterio humano.</h2>
@@ -137,28 +160,35 @@
     <h2>Las áreas que estamos construyendo</h2>
     <p class="sub">Inicio, KosmoTIC e Inter-IA forman el acceso piloto. Las siguientes áreas están definidas conceptualmente; aún no constituyen servicios plenamente disponibles.</p>
     <div class="grid two">
-      <article class="card">
-        <div class="micro">04 · Academia IA · En obras</div>
+      <article class="card" id="academia-city">
+        <div class="micro">04 · Academia IA · En obras 👷🏽‍♂️🏗️⚒️</div>
         <h3>Formación y aprendizaje</h3>
         <p>La lección introductoria <strong>L10 «Del chatbot al agente»</strong> está publicada como documento y dispone de una práctica abierta en esta página. Los recorridos L01–L25 y el libro C01–C40 son planificación editorial: no equivalen a cursos o capítulos terminados.</p>
         <p><strong>Arquitecto Tecnológico Global</strong> tiene un diseño curricular V0.1 de 25 temas y siete bloques; es otro itinerario, todavía en desarrollo. No hay matrícula, acreditación ni plataforma académica activas.</p>
       </article>
-      <article class="card">
-        <div class="micro">05 · Biblioteca · En obras</div>
+      <article class="card" id="biblioteca-city">
+        <div class="micro">05 · Biblioteca · En obras 👷🏽‍♂️🏗️⚒️</div>
         <h3>Conocimiento compartido</h3>
         <p>Libros, recursos, publicaciones y estudios con autoría y fuentes claras; sin acceso a documentos privados de trabajo.</p>
       </article>
-      <article class="card">
-        <div class="micro">06 · Proyectos · En obras</div>
+      <article class="card" id="proyectos-city">
+        <div class="micro">06 · Proyectos · En obras 👷🏽‍♂️🏗️⚒️</div>
         <h3>Innovación e investigación</h3>
         <p>Proyectos, laboratorio y experiencias de aplicación social y tecnológica, distinguiendo propuestas de resultados comprobados.</p>
       </article>
-      <article class="card">
-        <div class="micro">07 · Comunidad · En obras</div>
+      <article class="card" id="comunidad-city">
+        <div class="micro">07 · Comunidad · En obras 👷🏽‍♂️🏗️⚒️</div>
         <h3>Personas y cooperación</h3>
         <p>Participación, colaboración e iniciativas para profesionales, comercios y organizaciones.</p>
-        <h3>Centro de Negocios en Red</h3>
-        <p>Área económica y cooperativa <strong>dentro de KosmoTIC City</strong>, con oportunidades compartidas y estudio de financiación sostenible del ecosistema. Incluye el <strong>Círculo de Confianza</strong>, una iniciativa de relaciones profesionales responsables, no una certificación de terceros.</p>
+        <div class="subarea" id="negocios-city">
+          <h3>Centro de Negocios en Red · En obras 👷🏽‍♂️🏗️⚒️</h3>
+          <p>Área económica y de cooperación profesional dentro de Comunidad y KosmoTIC City. Se estudian oportunidades compartidas y mecanismos para contribuir a sostener los costes del ecosistema global, sin prometer rendimientos ni servicios activos.</p>
+          <ul>
+            <li>Red de profesionales, autónomos, comercios y empresas · <strong>En preparación</strong>.</li>
+            <li id="confianza-city"><strong>Círculo de Confianza</strong> · 👷🏽‍♂️🏗️⚒️ Relaciones responsables; no es certificación, aval ni garantía de terceros.</li>
+            <li id="membresias-city"><strong>Membresías y sostenibilidad</strong> · 👷🏽‍♂️🏗️⚒️ Modelo económico en estudio; sin cuotas, pagos ni altas habilitadas.</li>
+          </ul>
+        </div>
       </article>
     </div>
     <p class="note">👷🏽‍♂️🏗️⚒️ Estas áreas están en obras: no hay formularios, altas, directorio de miembros ni servicios de pago habilitados en esta versión.</p>
@@ -212,7 +242,7 @@
   </div></section>
 </template>
 <footer><div class="shell">
-  <p><strong>KosmoTIC City</strong> · Portal piloto de acceso y experimentación · 25/10/2026.</p>
+  <p><strong>KosmoTIC City</strong> · Portal piloto iniciado el 25/10/2026 · En evolución.</p>
   <p>Propósito humano · Soberanía de datos · Mínimo coste y máximo valor público. La configuración definitiva del portal, su entidad jurídica y sus condiciones de acceso continúan en definición. 👷🏽‍♂️🏗️⚒️</p>
   <p>Por un futuro más justo y un mundo mejor.</p>
 </div></footer>

@@ -1,0 +1,44 @@
+name: Validación KKO
+
+on:
+  push:
+    paths:
+      - "knowledge/**"
+      - "docs/libro/**"
+      - "docs/academia/**"
+      - "docs/kosmowiki/**"
+      - "schemas/kko.schema.json"
+      - "scripts/validate_kko.py"
+      - "scripts/validate_kko_links.py"
+      - ".github/workflows/validacion-kko.yml"
+  pull_request:
+    paths:
+      - "knowledge/**"
+      - "docs/libro/**"
+      - "docs/academia/**"
+      - "docs/kosmowiki/**"
+      - "schemas/kko.schema.json"
+      - "scripts/validate_kko.py"
+      - "scripts/validate_kko_links.py"
+      - ".github/workflows/validacion-kko.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar-kko:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar dependencias
+        run: python -m pip install "PyYAML>=6,<7" "jsonschema[format]>=4,<5"
+      - name: Validar metadatos KKO
+        run: python scripts/validate_kko.py
+      - name: Validar enlaces y trazabilidad de derivados
+        run: python scripts/validate_kko_links.py

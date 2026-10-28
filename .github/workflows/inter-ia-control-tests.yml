@@ -3,10 +3,12 @@ on:
   push:
     paths:
       - 'experiments/exp-002-autorizacion/**'
+      - 'schemas/authorization-decision.schema.json'
       - '.github/workflows/inter-ia-control-tests.yml'
   pull_request:
     paths:
       - 'experiments/exp-002-autorizacion/**'
+      - 'schemas/authorization-decision.schema.json'
       - '.github/workflows/inter-ia-control-tests.yml'
 permissions:
   contents: read

@@ -7,9 +7,17 @@
 
 > De herramientas aisladas a inteligencia coordinada.
 
-Repositorio público canónico para la primera capa de **KosmoTIC · Inter-IA · Capacidades**: una infraestructura evolutiva para ordenar conocimiento, datos, agentes, integraciones, experimentos y gobernanza de sistemas Inter-IA.
+Repositorio público **técnico y derivado** de la primera capa de **KosmoTIC · Inter-IA · Capacidades**: una infraestructura evolutiva para ordenar conocimiento, datos, agentes, integraciones, experimentos y gobernanza de sistemas Inter-IA.
 
 La interfaz pública puede ser simple. La arquitectura que la sostiene no tiene por qué serlo.
+
+---
+
+## Carta fundacional ratificada · 23/10/2026
+
+La [Carta Fundacional de Propósito, Legado y Conciencia Operativa V1.0](docs/inter-ia/carta-fundacional-v1.0.md) orienta a todas las inteligencias artificiales que se incorporen a Inter-IA. **Está ratificada en Google Drive**, fuente canónica institucional de acceso restringido; esta es solo una representación pública derivada. No supone sincronización automática ni concede permisos a nodos.
+
+**Jerarquía:** propósito humano y Marco Maestro → normas ratificadas → autorización por acción → evidencias → vistas técnicas. GitHub versiona código, experimentos y derivados; no sustituye la autoridad documental de Drive.
 
 ---
 

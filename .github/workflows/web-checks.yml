@@ -1,0 +1,25 @@
+name: City browser checks
+on:
+  push:
+    paths: ['web/**', 'scripts/check-city.cjs', '.github/workflows/web-checks.yml']
+  pull_request:
+    paths: ['web/**', 'scripts/check-city.cjs', '.github/workflows/web-checks.yml']
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned browser test dependency
+        run: npm install --prefix "$RUNNER_TEMP/kosmotic-web" --no-audit --no-fund playwright@1.64.1
+      - name: Install Chromium for testing
+        run: '"$RUNNER_TEMP/kosmotic-web/node_modules/.bin/playwright" install --with-deps chromium'
+      - name: Verify City in Chromium
+        env:
+          NODE_PATH: ${{ runner.temp }}/kosmotic-web/node_modules
+        run: node scripts/check-city.cjs

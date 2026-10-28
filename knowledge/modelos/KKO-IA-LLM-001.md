@@ -1,12 +1,12 @@
 ---
 id: KKO-IA-LLM-001
 format_version: 0.1.0
-version: 0.1.1
+version: 0.1.2
 title: "Modelos de lenguaje de gran tamaño (LLM)"
 domain: artificial-intelligence
-status: review
+status: validated
 created: "2026-10-22"
-updated: "2026-10-25"
+updated: "2026-10-28"
 human_review_required: true
 publication_approved: false
 audiences: [citizen, professional, technical]
@@ -23,7 +23,7 @@ related_kcr: []
 
 # Modelos de lenguaje de gran tamaño (LLM)
 
-> **Piloto del paso 16. Estado: en revisión editorial humana.** El archivo es visible en el repositorio público, pero no está aprobado como contenido editorial definitivo ni autorizado para generar publicaciones derivadas o desplegar una web.
+> **Estado: validado editorialmente por aprobación humana el 2026-10-28 (paso 17).** El archivo es visible en el repositorio público. La aprobación editorial del KKO no autoriza por sí sola publicaciones derivadas ni despliegues web.
 
 ## Definición
 
@@ -63,11 +63,11 @@ La arquitectura *Transformer* introdujo mecanismos de atención que son fundamen
 2. Brown et al., *Language Models are Few-Shot Learners* (2020): https://arxiv.org/abs/2005.14165 — ejemplo de modelado generativo autorregresivo a gran escala y aprendizaje con pocos ejemplos.
 3. Bommasani et al., *On the Opportunities and Risks of Foundation Models* (2021): https://arxiv.org/abs/2108.07258 — capacidades, riesgos y contexto de los modelos fundacionales, categoría más amplia que los LLM.
 
-## Control editorial · paso 16 (2026-10-25)
+## Control editorial · pasos 16 y 17
 
-- [x] Revisión conceptual asistida: precisada la diferencia entre LLM y sistema con herramientas; evitadas generalizaciones sobre predicción de tokens y razonamiento.
-- [x] Comprobación bibliográfica asistida: los tres enlaces identifican los trabajos citados y sus resúmenes respaldan los temas atribuidos. No constituye auditoría científica exhaustiva.
-- [ ] Aprobación editorial humana para pasar de `review` a `validated`.
+- [x] Revisión conceptual asistida (2026-10-25): precisada la diferencia entre LLM y sistema con herramientas; evitadas generalizaciones sobre predicción de tokens y razonamiento.
+- [x] Comprobación bibliográfica asistida (2026-10-25): los tres enlaces identifican los trabajos citados y sus resúmenes respaldan los temas atribuidos. No constituye auditoría científica exhaustiva.
+- [x] Aprobación editorial humana (2026-10-28): «Siguientes si hasta el final de uno en uno» en respuesta a la solicitud expresa del paso 17 en el grupo KosmoTIC.
 - [ ] Autorización separada de cualquier representación derivada o despliegue web.
 
 **Alcance del piloto:** L05 ↔ C05. El generador puede crear una vista temporal de revisión sin modificar `docs/` ni desplegar una web.

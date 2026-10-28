@@ -10,7 +10,6 @@ representation: "curricular-draft"
 publication_scope: "github-documentation-only"
 publication_authorized: "2026-10-23"
 ---
-
 # KosmoTIC City · Arquitecto Tecnológico Global
 ## Borrador de diseño curricular para desarrollo futuro
 

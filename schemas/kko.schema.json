@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/blob/main/schemas/kko.schema.json",
+  "title": "KosmoTIC Knowledge Object - metadatos minimos v0.1",
+  "description": "Validar contra los metadatos YAML extraidos del frontmatter de cada KKO Markdown. No valida el cuerpo, las fuentes ni la aprobacion humana.",
+  "type": "object",
+  "required": ["id", "format_version", "version", "title", "domain", "status", "created", "updated", "human_review_required", "publication_approved", "audiences", "course_lessons", "book_chapters", "source_refs"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^KKO-[A-Z0-9-]+$"},
+    "format_version": {"const": "0.1.0"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "title": {"type": "string", "minLength": 1},
+    "domain": {"type": "string", "minLength": 1},
+    "status": {"enum": ["draft", "review", "validated", "published", "update_required"]},
+    "created": {"type": "string", "format": "date"},
+    "updated": {"type": "string", "format": "date"},
+    "human_review_required": {"type": "boolean"},
+    "publication_approved": {"type": "boolean"},
+    "audiences": {"type": "array", "items": {"enum": ["citizen", "professional", "technical"]}, "minItems": 1, "uniqueItems": true},
+    "course_lessons": {"type": "array", "items": {"type": "string", "pattern": "^L[0-9]{2}$"}, "uniqueItems": true},
+    "book_chapters": {"type": "array", "items": {"type": "string", "pattern": "^C[0-9]{2}$"}, "uniqueItems": true},
+    "source_refs": {"type": "array", "items": {"type": "string", "format": "uri"}, "minItems": 1, "uniqueItems": true},
+    "related_kko": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "related_kcr": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"enum": ["draft", "review", "update_required"]}}, "required": ["status"]}, "then": {"properties": {"publication_approved": {"const": false}}}}
+  ],
+  "additionalProperties": false
+}

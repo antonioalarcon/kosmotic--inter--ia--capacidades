@@ -53,3 +53,8 @@ Se corrigen las rutas orientativas del acta original para reflejar los archivos 
 **Firma cognitiva del texto aportado:** Nodo Gemini · Inter-IA (según declaración recibida).  
 **Autoridad soberana indicada:** Antonio Alarcón Izquierdo · KosmoTIC.  
 **Nota de trazabilidad:** este registro documenta las declaraciones y verificaciones técnicas; no constituye firma criptográfica ni certificación externa.
+
+
+## Actualización de auditoría · 28/10/2026
+
+Los cuatro tests CDT pasan localmente sobre este código; consta CI de rama satisfactoria. Los estados pendientes anteriores se conservan como histórico. El documento Drive previamente vacío se repuso desde este registro fijado al commit 2f5057cac1a69acb903ef1455496631c769ff19e, con procedencia y límites: no es recuperación literal del acta original ni prueba independiente N+1. Integración autorizada como código sintético, sin activación productiva.

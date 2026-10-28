@@ -1,3 +1,5 @@
+> **CONTROL N+N (22/10/2026):** Transcripción editorial derivada, NO espejo binario ni fuente canónica. Fuente de autoridad: https://docs.google.com/document/d/1OeLI0Z9j6XMhaGfbqa5skwRr96Ak85o2ItAfmyU9OCw/edit . Se conserva esta única referencia GitHub por utilidad documental; no confundir igualdad de GID/VID con igualdad de bytes.
+
 # KOSMOTIC · INTER-IA
 # INFORME FINAL DE PROSPECCIÓN · IAPE CITY
 Referencia: KOS-IIA-REF-EXT-IAPE-20261014-V1.0

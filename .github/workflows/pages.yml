@@ -5,20 +5,32 @@ on:
     workflows: ["Validación JSON"]
     types: [completed]
 
+# Fail-closed: publicar solo el SHA expresamente aprobado en la variable de repositorio.
+# PAGES_PUBLICATION_APPROVED_SHA ausente o distinta => no construir ni desplegar.
+# Principio de privilegio mínimo: permisos elevados solo para desplegar.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.event.workflow_run.head_branch }}-${{ github.event.workflow_run.event }}
   cancel-in-progress: true
 
 jobs:
   construir:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.head_repository.full_name == github.repository && vars.PAGES_PUBLICATION_APPROVED_SHA == github.event.workflow_run.head_sha }}
     runs-on: ubuntu-latest
     steps:
+      - name: Comprobar que main aún coincide con el commit validado
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VALIDATED_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          CURRENT_SHA="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')"
+          if [ "$CURRENT_SHA" != "$VALIDATED_SHA" ]; then
+            echo "::error::main ha cambiado desde la validación; se cancela este despliegue"
+            exit 1
+          fi
+
       - name: Checkout del commit validado
         uses: actions/checkout@v4
         with:
@@ -41,11 +53,26 @@ jobs:
 
   publicar:
     needs: construir
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - name: Comprobar main después de la aprobación del entorno
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VALIDATED_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          CURRENT_SHA="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/heads/main" --jq '.object.sha')"
+          if [ "$CURRENT_SHA" != "$VALIDATED_SHA" ]; then
+            echo "::error::main ha cambiado antes de publicar; se exige nueva validación"
+            exit 1
+          fi
+
       - name: Publicar
         id: deployment
         uses: actions/deploy-pages@v4

@@ -42,3 +42,8 @@ No hay nuevas conexiones, APIs de pago, automatizaciones ni despliegues autoriza
 ## Registro de cambios
 2026-10-16: consolidación conceptual inicial de SIRS V0.1 y estado provisional del FVP 0.1.
 Esta acta es derivada, no sustituye al Marco Maestro V1.5 ni a las evidencias originales.
+
+
+## Integración documental · 28/10/2026
+
+Contenido histórico contrastado con el acta Drive mediante comparación de párrafos. Se incorpora como propuesta documental por autorización del titular para el saneamiento del repositorio. La incorporación no ratifica SIRS, no cierra FVP ni levanta la dependencia de localización de la fuente original del Marco Maestro V1.5. Las referencias secundarias y los archivos históricos V1.2/V1.3 localizados no sustituyen esa fuente. Sin activación de Fase 1, APIs, publicación web ni cambio de arquitectura.

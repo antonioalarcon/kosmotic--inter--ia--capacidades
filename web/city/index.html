@@ -33,9 +33,9 @@
     .route{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:20px 0 24px;color:var(--soft)}.route strong{color:var(--ink)}.route .arrow{color:var(--lime)}
     .map-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.map-links a{display:block;padding:15px;border-radius:12px;border:1px solid var(--line);background:var(--panel);text-decoration:none;color:var(--ink);font-weight:650}
     .map-links a:hover{border-color:var(--cyan)}.map-links small{display:block;color:var(--soft);font-size:.8rem;font-weight:400}
-    .subarea{border-left:3px solid var(--cyan);padding-left:15px;margin-top:22px}.subarea ul{padding-left:20px}.subarea li{margin:8px 0}
+    .subarea{border-left:3px solid var(--cyan);padding-left:15px;margin-top:22px}.estados{font-size:.92rem;color:var(--soft)}.estados strong{color:var(--ink)}.subarea ul{padding-left:20px}.subarea li{margin:8px 0}
     @media(max-width:800px){.map-links{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.map-links{grid-template-columns:1fr}}
-    .inventory-list{columns:3;column-gap:25px;padding-left:26px}.inventory-list li{break-inside:avoid;margin-bottom:7px}
+    .inventory-list{columns:3;column-gap:25px;padding-left:0;list-style:none}.ref-num{display:inline-block;min-width:2.2em;color:var(--soft);font-variant-numeric:tabular-nums}.inventory-list li{break-inside:avoid;margin-bottom:7px}
     @media(max-width:800px){.inventory-list{columns:2}}@media(max-width:520px){.inventory-list{columns:1}}
     footer{border-top:1px solid var(--line);padding:35px 0 60px;color:var(--soft);font-size:.85rem}
     @media(max-width:800px){.grid,.grid.two{grid-template-columns:1fr}.hero{padding:56px 0}.shell{padding:0 18px}main section{padding:45px 0}.navlinks{gap:9px 16px}}
@@ -58,7 +58,7 @@
   <nav class="shell" aria-label="Navegación principal">
     <a class="brand" href="#inicio">KosmoTIC<span> City</span></a>
     <div class="navlinks">
-      <a href="#inicio">Inicio</a><a href="#mapa">Mapa de la ciudad</a><a href="#kosmotic">KosmoTIC</a><a href="#inter-ia">Inter-IA</a><a href="#inventario">Inventario IA</a><a href="#practica">Práctica abierta</a><a href="#areas">Áreas en obras 👷🏽‍♂️</a>
+      <a href="#inicio">Inicio</a><a href="#mapa">Mapa de la ciudad</a><a href="#kosmotic">KosmoTIC</a><a href="#inter-ia">Inter-IA</a><a href="#inventario">Inventario IA</a><a href="#practica">Práctica abierta</a><a href="#areas">Áreas en obras</a><a href="#principios">Transversal</a>
     </div>
   </nav>
 </header>
@@ -72,7 +72,7 @@
       <a class="cta" href="#kosmotic">Conoce KosmoTIC</a>
       <a class="cta secondary" href="#inter-ia">Explora Inter-IA</a>
     </div>
-    <p class="note"><strong>Ya disponible:</strong> presentación de KosmoTIC e Inter-IA, inventario de 24 referencias y una práctica introductoria abierta. <strong>En preparación:</strong> fichas detalladas del inventario, cursos completos, biblioteca, proyectos y participación. No hay altas de usuarios, cobros ni solicitudes personales habilitadas en este piloto.</p>
+    <p class="note"><strong>Disponible:</strong> presentación de KosmoTIC e Inter-IA, inventario de 24 referencias y una práctica introductoria abierta. <strong>En preparación:</strong> fichas detalladas del inventario, cursos completos, biblioteca, proyectos y participación. No hay altas de usuarios, cobros ni solicitudes personales habilitadas en este piloto.</p>
   </div>
 </div>
 <main>
@@ -85,13 +85,16 @@
       <a href="#inicio">01 · Inicio<small>Presentación · Piloto accesible</small></a>
       <a href="#kosmotic">02 · KosmoTIC<small>Propósito, valores y La Génesis</small></a>
       <a href="#inter-ia">03 · Inter-IA<small>Metacerebro e inventario de 24 referencias</small></a>
-      <a href="#academia-city">04 · Academia y cursos<small>👷🏽‍♂️🏗️⚒️ En obras · Práctica L10 disponible</small></a>
-      <a href="#biblioteca-city">05 · Biblioteca<small>👷🏽‍♂️🏗️⚒️ En obras · Conocimiento y recursos</small></a>
-      <a href="#proyectos-city">06 · Proyectos<small>👷🏽‍♂️🏗️⚒️ En obras · Investigación e innovación</small></a>
-      <a href="#comunidad-city">07 · Comunidad<small>👷🏽‍♂️🏗️⚒️ En obras · Cooperación profesional</small></a>
-      <a href="#negocios-city">Centro de Negocios en Red<small>👷🏽‍♂️🏗️⚒️ Dentro de Comunidad</small></a>
-      <a href="#membresias-city">Membresías<small>👷🏽‍♂️🏗️⚒️ Estudio, sin contratación abierta</small></a>
+      <a href="#academia-city">04 · Academia y cursos<small>🚧 En obras · Práctica L10: Disponible</small></a>
+      <a href="#biblioteca-city">05 · Biblioteca<small>🚧 En obras · Índice transversal con primeras referencias disponibles</small></a>
+      <a href="#proyectos-city">06 · Proyectos<small>🚧 En obras · Investigación e innovación</small></a>
+      <a href="#comunidad-city">07 · Comunidad<small>🚧 En obras · Cooperación profesional</small></a>
+      <a href="#negocios-city">Centro de Negocios en Red<small>🚧 En obras · Dentro de Comunidad</small></a>
+      <a href="#membresias-city">Membresías<small>En preparación · Estudio, sin contratación abierta</small></a>
+      <a href="#retos">Retos de aprendizaje<small>En preparación · Ficha AUTI-F001</small></a>
+      <a href="#principios">Funciones transversales<small>Marco del ecosistema · No son servicios</small></a>
     </nav>
+    <p class="estados">Estados de contenido: <strong>Disponible</strong> · <strong>En investigación o experimentación</strong> · <strong>En preparación</strong> · <strong>🚧 En obras</strong>. La leyenda inventariada / probada / homologada del inventario es un eje distinto: mide la evidencia, no la publicación.</p>
     <p class="note">Navegar por un área no significa que su servicio esté activado. El inventario es documental; los contenidos y accesos futuros avanzarán con revisión humana, privacidad y comprobaciones técnicas.</p>
   </div></section>
   <section id="kosmotic"><div class="shell">
@@ -126,7 +129,7 @@
     <h2>Distintas inteligencias artificiales, un propósito compartido.</h2>
     <p class="sub">Inter-IA es el marco de KosmoTIC para estudiar, comparar y coordinar capacidades de diferentes sistemas de inteligencia artificial bajo supervisión humana.</p>
     <div id="metacerebro">
-      <div class="tag">Metacerebro · En obras 👷🏽‍♂️🏗️⚒️</div>
+      <div class="tag">Metacerebro · 🚧 En obras</div>
       <h3>Una arquitectura cooperativa con criterio humano</h3>
       <p>El Metacerebro Inter-IA es una arquitectura cognitiva y metacognitiva federada en evolución. Investiga, compara y coordina capacidades conforme a permisos, evidencias y decisiones humanas. No es una única superinteligencia ni acredita una conexión automática entre todos los asistentes.</p>
       <h3>Seis funciones compartidas</h3>
@@ -143,16 +146,16 @@
     <div id="inventario" class="card" style="margin-top:30px">
       <div class="tag">Inventario de IA · 24 referencias documentales</div>
       <h3>Familias, proveedores y ecosistemas</h3>
-      <p>Estas 24 referencias conservan el orden canónico ratificado. <strong>No son 24 IA conectadas, probadas u homologadas.</strong> Los modelos y versiones pertenecen a su referencia de origen, sin doble cómputo.</p>
+      <p>Estas 24 referencias conservan el orden canónico ratificado y su número se mantiene visible también al filtrar. <strong>No son 24 IA conectadas, probadas u homologadas.</strong> Los modelos y versiones pertenecen a su referencia de origen, sin doble cómputo.</p>
       <details open><summary>Consultar las 24 referencias</summary>
-      <ol class="inventory-list"><li>ChatGPT / OpenAI</li><li>DeepSeek</li><li>Claude / Anthropic</li><li>Gemini / Google</li><li>Qwen Chat / Alibaba</li><li>Mistral / Le Chat</li><li>Perplexity</li><li>Copilot / Microsoft</li><li>Meta AI / Meta</li><li>Grok / xAI</li><li>Kimi / Moonshot AI</li><li>Cohere / North</li><li>Z.ai / GLM</li><li>AWS Bedrock / AgentCore</li><li>Hugging Face</li><li>Poe</li><li>Reflection AI</li><li>Manus</li><li>IBM / watsonx Orchestrate</li><li>MiniMax</li><li>Doubao / Seed</li><li>Llama</li><li>Hunyuan</li><li>Nemotron</li></ol></details>
+      <ol class="inventory-list"><li><span class="ref-num">01</span> ChatGPT / OpenAI</li><li><span class="ref-num">02</span> DeepSeek</li><li><span class="ref-num">03</span> Claude / Anthropic</li><li><span class="ref-num">04</span> Gemini / Google</li><li><span class="ref-num">05</span> Qwen Chat / Alibaba</li><li><span class="ref-num">06</span> Mistral / Le Chat</li><li><span class="ref-num">07</span> Perplexity</li><li><span class="ref-num">08</span> Copilot / Microsoft</li><li><span class="ref-num">09</span> Meta AI / Meta</li><li><span class="ref-num">10</span> Grok / xAI</li><li><span class="ref-num">11</span> Kimi / Moonshot AI</li><li><span class="ref-num">12</span> Cohere / North</li><li><span class="ref-num">13</span> Z.ai / GLM</li><li><span class="ref-num">14</span> AWS Bedrock / AgentCore</li><li><span class="ref-num">15</span> Hugging Face</li><li><span class="ref-num">16</span> Poe</li><li><span class="ref-num">17</span> Reflection AI</li><li><span class="ref-num">18</span> Manus</li><li><span class="ref-num">19</span> IBM / watsonx Orchestrate</li><li><span class="ref-num">20</span> MiniMax</li><li><span class="ref-num">21</span> Doubao / Seed</li><li><span class="ref-num">22</span> Llama</li><li><span class="ref-num">23</span> Hunyuan</li><li><span class="ref-num">24</span> Nemotron</li></ol></details>
       <p><strong>Cómo interpretar el avance:</strong> <strong>inventariada</strong> significa identificada y documentada; <strong>probada</strong> requiere una prueba concreta con evidencias y límites; <strong>homologada</strong> exige criterios, evaluación y aprobación humana. Una misma familia puede contener modelos, productos y superficies con estados distintos.</p>
       <p><strong>En desarrollo:</strong> inventario de modelos y versiones → evaluación de capacidades → auditoría y homologación → mapas verificados. La primera revisión documental es parcial.</p>
       <p class="note">Vista pública derivada del censo Inter-IA, revisión del 24/10/2026. El original permanece restringido; ni su enlace ni su contenido íntegro se publican.</p>
     </div>
   </div></section>
   <section id="practica"><div class="shell">
-    <div class="tag">Aprendizaje abierto · Actividad introductoria</div>
+    <div class="tag">Aprendizaje abierto · Disponible</div>
     <h2>Práctica: del chatbot al agente</h2>
     <p class="sub">Una actividad autónoma y breve derivada de la lección L10 publicada el 20/10/2026. Consultarla no implica matrícula ni acceso a una plataforma educativa.</p>
     <article class="lesson">
@@ -167,42 +170,71 @@
     </article>
   </div></section>
   <section id="areas"><div class="shell">
-    <div class="tag">KosmoTIC City · En construcción 👷🏽‍♂️🏗️⚒️</div>
+    <div class="tag">KosmoTIC City · 🚧 En obras</div>
     <h2>Las áreas que estamos construyendo</h2>
     <p class="sub">Inicio, KosmoTIC e Inter-IA forman el acceso piloto. Las siguientes áreas están definidas conceptualmente; aún no constituyen servicios plenamente disponibles.</p>
     <div class="grid two">
       <article class="card" id="academia-city">
-        <div class="micro">04 · Academia IA · En obras 👷🏽‍♂️🏗️⚒️</div>
+        <div class="micro">04 · Academia IA · 🚧 En obras</div>
         <h3>Formación y aprendizaje</h3>
         <p>La lección introductoria <strong>L10 «Del chatbot al agente»</strong> está publicada como documento y dispone de una práctica abierta en esta página. Los recorridos L01–L25 y el libro C01–C40 son planificación editorial: no equivalen a cursos o capítulos terminados.</p>
         <p><strong>Arquitecto Tecnológico Global</strong> tiene un diseño curricular V0.1 de 25 temas y siete bloques; es otro itinerario, todavía en desarrollo. No hay matrícula, acreditación ni plataforma académica activas.</p>
+        <div class="subarea" id="retos">
+          <h3>Retos de aprendizaje · En preparación</h3>
+          <p>Actividades prácticas guiadas, con advertencias de seguridad y evaluación de rentabilidad. Cada reto se publicará cuando su ficha esté validada; ninguno está operativo todavía.</p>
+          <ul>
+            <li id="auti-f001"><strong>AUTI-F001 · Evalúa tu propio ordenador</strong> · <strong>En preparación</strong>. Primer reto del programa AUTI (versión V1.1 en preparación): aprender a evaluar un equipo con una ficha guiada por IA y comparar el coste de recuperarlo frente a sustituirlo, para llegar a una conclusión propia. El aprendizaje es valioso aunque se decida no recuperar el equipo. La ficha, el inventario de equipos y los resultados de prueba aún no están publicados.</li>
+          </ul>
+        </div>
       </article>
       <article class="card" id="biblioteca-city">
-        <div class="micro">05 · Biblioteca · En obras 👷🏽‍♂️🏗️⚒️</div>
+        <div class="micro">05 · Biblioteca · 🚧 En obras</div>
         <h3>Conocimiento compartido</h3>
-        <p>Libros, recursos, publicaciones y estudios con autoría y fuentes claras; sin acceso a documentos privados de trabajo.</p>
+        <p>Índice transversal de recursos aprobados: enlaza las fuentes y sus derivados públicos sin mantener un segundo catálogo. Cada elemento muestra su estado; sin acceso a documentos privados de trabajo.</p>
+        <ul>
+          <li><a href="#genesis">La Génesis · síntesis pública</a> · <strong>Disponible</strong> en esta página.</li>
+          <li><a href="https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/blob/main/docs/academia/L10-agentes-ia.md" target="_blank" rel="noopener noreferrer">L10 · Del chatbot al agente</a> · <strong>Disponible</strong>.</li>
+          <li><a href="https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/blob/main/docs/inter-ia/carta-fundacional-v1.0.md" target="_blank" rel="noopener noreferrer">Carta Fundacional Inter-IA V1.0 · representación pública</a> · <strong>Disponible</strong>.</li>
+          <li><a href="#inventario">Inventario de 24 referencias de IA</a> · <strong>Disponible</strong> como referencia documental.</li>
+          <li>Fichas detalladas del inventario, libro C01–C40 y estudios · <strong>En preparación</strong>.</li>
+        </ul>
       </article>
       <article class="card" id="proyectos-city">
-        <div class="micro">06 · Proyectos · En obras 👷🏽‍♂️🏗️⚒️</div>
+        <div class="micro">06 · Proyectos · 🚧 En obras</div>
         <h3>Innovación e investigación</h3>
         <p>Proyectos, laboratorio y experiencias de aplicación social y tecnológica, distinguiendo propuestas de resultados comprobados.</p>
       </article>
       <article class="card" id="comunidad-city">
-        <div class="micro">07 · Comunidad · En obras 👷🏽‍♂️🏗️⚒️</div>
+        <div class="micro">07 · Comunidad · 🚧 En obras</div>
         <h3>Personas y cooperación</h3>
         <p>Participación, colaboración e iniciativas para profesionales, comercios y organizaciones.</p>
         <div class="subarea" id="negocios-city">
-          <h3>Centro de Negocios en Red · En obras 👷🏽‍♂️🏗️⚒️</h3>
+          <h3>Centro de Negocios en Red · 🚧 En obras</h3>
           <p>Área económica y de cooperación profesional dentro de Comunidad y KosmoTIC City. Se estudian oportunidades compartidas y mecanismos para contribuir a sostener los costes del ecosistema global, sin prometer rendimientos ni servicios activos.</p>
           <ul>
             <li>Red de profesionales, autónomos, comercios y empresas · <strong>En preparación</strong>.</li>
-            <li id="confianza-city"><strong>Círculo de Confianza</strong> · 👷🏽‍♂️🏗️⚒️ Relaciones responsables; no es certificación, aval ni garantía de terceros.</li>
-            <li id="membresias-city"><strong>Membresías y sostenibilidad</strong> · 👷🏽‍♂️🏗️⚒️ Modelo económico en estudio; sin cuotas, pagos ni altas habilitadas.</li>
+            <li id="confianza-city"><strong>Círculo de Confianza</strong> · 🚧 En obras. Relaciones responsables; no es certificación, aval ni garantía de terceros.</li>
+            <li id="membresias-city"><strong>Membresías y sostenibilidad</strong> · En preparación. Modelo económico en estudio; sin cuotas, pagos ni altas habilitadas.</li>
           </ul>
         </div>
       </article>
     </div>
-    <p class="note">👷🏽‍♂️🏗️⚒️ Estas áreas están en obras: no hay formularios, altas, directorio de miembros ni servicios de pago habilitados en esta versión.</p>
+    <p class="note">🚧 Estas áreas están en obras: no hay formularios, altas, directorio de miembros ni servicios de pago habilitados en esta versión.</p>
+  </div></section>
+  <section id="principios" aria-labelledby="principios-titulo"><div class="shell">
+    <div class="tag">Funciones transversales · Marco del ecosistema, no servicios activados</div>
+    <h2 id="principios-titulo">Lo que sostiene a toda la ciudad</h2>
+    <p class="sub">Siete funciones atraviesan todas las áreas. Describen cómo se gobierna y se sostiene el ecosistema; no son servicios contratables ni espacios de acceso. Solo se enlaza lo que ya tiene un derivado público verificado.</p>
+    <div class="grid two">
+      <article class="card"><h3>Identidad</h3><p>Una sola identidad KosmoTIC, de la que deriva la presencia de KosmoTIC City.</p><p class="micro">En preparación · identidad visual propia de City pendiente</p></article>
+      <article class="card"><h3>Soberanía digital</h3><p>La autoridad y los datos sensibles permanecen bajo control humano; la tecnología se elige por utilidad, no por dependencia.</p><p class="micro">Disponible como principio · <a href="https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/blob/main/README.md" target="_blank" rel="noopener noreferrer">README público</a></p></article>
+      <article class="card"><h3>Gobernanza</h3><p>Autoridad humana, permisos por acción, trazabilidad y revisión antes de publicar.</p><p class="micro">Disponible · <a href="https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/blob/main/docs/inter-ia/carta-fundacional-v1.0.md" target="_blank" rel="noopener noreferrer">Carta Fundacional V1.0 pública</a></p></article>
+      <article class="card"><h3>Observatorio</h3><p>Seguimiento crítico de avances, fuentes y riesgos del ecosistema.</p><p class="micro">En preparación · definición pública pendiente</p></article>
+      <article class="card"><h3>Resiliencia</h3><p>Continuidad N+1/N+N, copias comprobables y recuperación verificable.</p><p class="micro">🚧 En obras · <a href="https://github.com/antonioalarcon/kosmotic-inter-ia-capacidades/tree/main/continuidad/pruebas_restauracion" target="_blank" rel="noopener noreferrer">pruebas de restauración públicas</a></p></article>
+      <article class="card"><h3>Memoria</h3><p>Versiones, procedencia y contexto conservados para no depender de la improvisación.</p><p class="micro">🚧 En obras</p></article>
+      <article class="card"><h3>Legado</h3><p>Documentación fundacional y decisiones pensadas para permanecer.</p><p class="micro">Disponible · <a href="#genesis">La Génesis</a></p></article>
+    </div>
+    <p class="note">Separación de accesos: lo público está en esta página y en el repositorio; lo interno y lo restringido permanecen fuera del portal y, cuando se activen, exigirán autenticación real. Ningún enlace oculto sustituye una protección real.</p>
   </div></section>
 </main>
 <!-- Reserva editorial inerte para futuras areas. No se muestra ni habilita accesos. -->
@@ -254,8 +286,9 @@
 </template>
 <footer><div class="shell">
   <p><strong>KosmoTIC City</strong> · Portal piloto iniciado el 25/10/2026 · En evolución.</p>
-  <p>Propósito humano · Soberanía de datos · Mínimo coste y máximo valor público. La configuración definitiva del portal, su entidad jurídica y sus condiciones de acceso continúan en definición. 👷🏽‍♂️🏗️⚒️</p>
+  <p>Propósito humano · Soberanía de datos · Mínimo coste y máximo valor público. La configuración definitiva del portal, su entidad jurídica y sus condiciones de acceso continúan en definición. 🚧</p>
   <p>Por un futuro más justo y un mundo mejor.</p>
+  <p><a href="#inicio">↑ Volver al inicio</a></p>
 </div></footer>
 
 <script>

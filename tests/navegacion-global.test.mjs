@@ -30,6 +30,9 @@ ok(/\[id\]\{scroll-margin-top:/.test(city), 'city: margen de anclaje para no tap
 ok(city.includes('id="navegacion-final"'), 'city: sección de navegación final presente');
 const finCity = city.slice(city.indexOf('id="navegacion-final"'));
 const ctasCity = [...finCity.matchAll(/<a class="cta secondary" href="([^"]+)">([^<]+)<\/a>/g)].map(m => m[1] + '|' + m[2]);
+const heroCity = city.slice(city.indexOf('class="hero"'), city.indexOf('class="hero"') + 2000);
+const heroCtas = [...heroCity.matchAll(/<a class="(cta[^"]*)" href="#/g)].map(m => m[1]);
+ok(heroCtas.length >= 2 && new Set(heroCtas).size === 1, 'city: botones de entrada del héroe con tratamiento visual y funcional idéntico');
 ok(JSON.stringify(ctasCity) === JSON.stringify([
   '../index.html|← Volver a capacidades', '#inicio|Inicio', '#kosmotic|KosmoTIC', '#inter-ia|Inter-IA'
 ]), 'city: fila final equivalente con cuatro recuadros homogéneos y etiquetas inequívocas');

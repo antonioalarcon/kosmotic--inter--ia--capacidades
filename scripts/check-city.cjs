@@ -20,6 +20,17 @@ const { chromium } = require('playwright');
     assert.deepEqual(missing, [], 'all public anchors need rendered targets');
     const ids = await page.locator('[id]').evaluateAll(elements => elements.map(e => e.id));
     assert.equal(new Set(ids).size, ids.length, 'IDs must be unique');
+    const skip = page.locator('a.skip-link');
+    assert.equal(await skip.count(), 1, 'skip link present');
+    assert.equal(await skip.getAttribute('href'), '#contenido', 'skip link targets the main content');
+    assert.equal(await page.locator('main#contenido[tabindex="-1"]').count(), 1, 'main is a focusable skip target');
+    assert.equal(await skip.evaluate(el => el.getBoundingClientRect().x < 0), true, 'skip link hidden until focused');
+    await page.keyboard.press('Tab');
+    assert.equal(await page.evaluate(() => document.activeElement.classList.contains('skip-link')), true, 'skip link is the first tab stop');
+    const skipBox = await skip.boundingBox();
+    assert.ok(skipBox && skipBox.x >= 0 && skipBox.width > 0, 'skip link visible when focused');
+    await page.keyboard.press('Enter');
+    assert.equal(await page.evaluate(() => document.activeElement.id), 'contenido', 'focus lands on the main content');
     await page.getByRole('searchbox', { name: 'Buscar entre las 24 referencias' }).fill('Claude');
     assert.equal(await page.locator('.inventory-list > li:not([hidden])').count(), 1);
     await page.locator('#meta-inv-query').fill('Llama');
@@ -51,7 +62,7 @@ const { chromium } = require('playwright');
     assert.equal(await fallback.locator('.inventory-list > li[hidden]').count(), 0);
     assert.equal(await fallback.locator('.inventory-list .ref-num').count(), 24, 'explicit canonical numbers render without JS');
     await noJS.close();
-    console.log('PASS: 24 entries, canonical numbering on filter, exact states, search, reset/focus, anchors, IDs, responsive layout, text reflow and no-JS fallback');
+    console.log('PASS: 24 entries, canonical numbering on filter, exact states, skip link, search, reset/focus, anchors, IDs, responsive layout, text reflow and no-JS fallback');
   } finally {
     await browser.close();
   }

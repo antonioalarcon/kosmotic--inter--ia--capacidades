@@ -184,3 +184,28 @@ a { color: var(--accent); }
   .icon-card { grid-template-columns: 1fr; }
   .icon-symbol { width: 52px; height: 52px; }
 }
+
+/* Accesos principales de la portada: tres recuadros homogéneos */
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.cta {
+  display: inline-block;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,.32);
+  border-radius: 12px;
+  padding: 14px 20px;
+  min-height: 48px;
+  line-height: 1.25;
+  text-decoration: none;
+  font-weight: 800;
+}
+.cta:hover { border-color: var(--accent); }
+.cta:focus-visible {
+  outline: 3px solid var(--accent-2);
+  outline-offset: 2px;
+  border-color: var(--accent-2);
+}
+@media (max-width: 560px) {
+  .actions { flex-direction: column; align-items: stretch; }
+  .cta { text-align: center; }
+}

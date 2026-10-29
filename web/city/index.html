@@ -12,15 +12,15 @@
     a{color:var(--cyan)}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--lime);outline-offset:4px}
     .skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:var(--lime);color:#07242b;font-weight:700;padding:10px 16px;border-radius:0 0 12px 0}
     .skip-link:focus-visible{left:0;outline-color:#07242b}
-    .shell{max-width:1140px;margin:auto;padding:0 24px}.mast{border-bottom:1px solid var(--line);background:#0b1526eb}
+    .shell{max-width:1140px;margin:auto;padding:0 24px}.mast{border-bottom:1px solid var(--line);background:#0b1526f2}
     nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:16px 0}
     .brand{font-weight:800;letter-spacing:.02em;text-decoration:none;color:var(--ink);white-space:normal}.brand span{color:var(--cyan)}
-    .navlinks{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.92rem}.navlinks a{text-decoration:none;color:var(--soft)}.navlinks a:hover{color:var(--ink)}
+    .navlinks{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.92rem}.navlinks a{display:inline-block;padding:6px 0;text-decoration:none;color:var(--soft)}.navlinks a:hover{color:var(--ink)}
     .hero{padding:80px 0 72px;background:radial-gradient(ellipse at 82% 20%,#194b5a 0,transparent 55%),linear-gradient(135deg,#0b1526,#142239)}
     .tag{letter-spacing:.13em;text-transform:uppercase;color:var(--lime);font-weight:750;font-size:.73rem}
     h1{font-size:clamp(2.5rem,6vw,5rem);line-height:1.09;letter-spacing:-.055em;margin:18px 0 25px;max-width:950px;overflow-wrap:anywhere}
     .intro{color:var(--soft);font-size:clamp(1.08rem,2.3vw,1.38rem);max-width:820px;line-height:1.6}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}nav.actions{justify-content:flex-start;padding:0}
     .cta{display:inline-block;background:var(--cyan);color:#07242b;border-radius:12px;padding:12px 18px;text-decoration:none;font-weight:800}
     .cta.secondary{background:transparent;color:var(--ink);border:1px solid #5e8396}
     main section{padding:65px 0;border-top:1px solid var(--line)}h2{font-size:clamp(1.8rem,3.3vw,2.65rem);line-height:1.2;margin:0 0 12px;letter-spacing:-.035em}
@@ -36,6 +36,7 @@
     .map-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.map-links a{display:block;padding:15px;border-radius:12px;border:1px solid var(--line);background:var(--panel);text-decoration:none;color:var(--ink);font-weight:650}
     .map-links a:hover{border-color:var(--cyan)}.map-links small{display:block;color:var(--soft);font-size:.8rem;font-weight:400}
     .subarea{border-left:3px solid var(--cyan);padding-left:15px;margin-top:22px}.estados{font-size:.92rem;color:var(--soft)}.estados strong{color:var(--ink)}.subarea ul{padding-left:20px}.subarea li{margin:8px 0}
+    @media(min-width:801px){.mast{position:sticky;top:0;z-index:50}[id]{scroll-margin-top:150px}}
     @media(max-width:800px){.map-links{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.map-links{grid-template-columns:1fr}}
     .inventory-list{columns:3;column-gap:25px;padding-left:0;list-style:none}.ref-num{display:inline-block;min-width:2.2em;color:var(--soft);font-variant-numeric:tabular-nums}.inventory-list li{break-inside:avoid;margin-bottom:7px}
     @media(max-width:800px){.inventory-list{columns:2}}@media(max-width:520px){.inventory-list{columns:1}}
@@ -61,7 +62,7 @@
   <nav class="shell" aria-label="Navegación principal">
     <a class="brand" href="#inicio">KosmoTIC<span> City</span></a>
     <div class="navlinks">
-      <a href="#inicio">Inicio</a><a href="#mapa">Mapa de la ciudad</a><a href="#kosmotic">KosmoTIC</a><a href="#inter-ia">Inter-IA</a><a href="#inventario">Inventario IA</a><a href="#practica">Práctica abierta</a><a href="#areas">Áreas en obras</a><a href="#principios">Transversal</a>
+      <a href="../index.html">← Capacidades</a><a href="#inicio">Inicio</a><a href="#mapa">Mapa de la ciudad</a><a href="#kosmotic">KosmoTIC</a><a href="#inter-ia">Inter-IA</a><a href="#inventario">Inventario IA</a><a href="#practica">Práctica abierta</a><a href="#areas">Áreas en obras</a><a href="#principios">Transversal</a>
     </div>
   </nav>
 </header>
@@ -72,7 +73,7 @@
     <p class="intro">Un proyecto en construcción para aprender, explorar y aplicar la tecnología a necesidades reales de personas, profesionales y comunidades.</p>
     <p>Empieza con una idea, descubre sus posibilidades y encuentra un siguiente paso útil.</p>
     <div class="actions">
-      <a class="cta" href="#kosmotic">Conoce KosmoTIC</a>
+      <a class="cta secondary" href="#kosmotic">Conoce KosmoTIC</a>
       <a class="cta secondary" href="#inter-ia">Explora Inter-IA</a>
     </div>
     <p class="note"><strong>Disponible:</strong> presentación de KosmoTIC e Inter-IA, inventario de 24 referencias y una práctica introductoria abierta. <strong>En preparación:</strong> fichas detalladas del inventario, cursos completos, biblioteca, proyectos y participación. No hay altas de usuarios, cobros ni solicitudes personales habilitadas en este piloto.</p>
@@ -238,6 +239,14 @@
       <article class="card"><h3>Legado</h3><p>Documentación fundacional y decisiones pensadas para permanecer.</p><p class="micro">Disponible · <a href="#genesis">La Génesis</a></p></article>
     </div>
     <p class="note">Separación de accesos: lo público está en esta página y en el repositorio; lo interno y lo restringido permanecen fuera del portal y, cuando se activen, exigirán autenticación real. Ningún enlace oculto sustituye una protección real.</p>
+  </div></section>
+  <section id="navegacion-final" aria-label="Navegación final"><div class="shell">
+    <nav class="actions" aria-label="Accesos finales de KosmoTIC City">
+      <a class="cta secondary" href="../index.html">← Volver a capacidades</a>
+      <a class="cta secondary" href="#inicio">Inicio</a>
+      <a class="cta secondary" href="#kosmotic">KosmoTIC</a>
+      <a class="cta secondary" href="#inter-ia">Inter-IA</a>
+    </nav>
   </div></section>
 </main>
 <!-- Reserva editorial inerte para futuras areas. No se muestra ni habilita accesos. -->

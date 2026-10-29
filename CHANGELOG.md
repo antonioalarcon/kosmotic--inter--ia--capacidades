@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## 2026-10-29 · KosmoTIC City: estados exactos, funciones transversales, retos AUTI y biblioteca transversal (borrador en PR #16, sin publicación)
+
+- `web/city/index.html`: taxonomía de contenido unificada a los cuatro estados exactos (Disponible / En investigación o experimentación / En preparación / 🚧 En obras), con leyenda visible y distinción frente al eje de evidencia (inventariada / probada / homologada).
+- Nueva sección `#principios` con las siete funciones transversales (identidad, soberanía digital, gobernanza, observatorio, resiliencia, memoria y legado) como marco del ecosistema, sin presentarlas como servicios; solo se enlazan derivados públicos verificados.
+- Nueva subárea `#retos` en Academia con la ficha AUTI-F001 («Evalúa tu propio ordenador», programa AUTI V1.1) marcada En preparación: estructura funcional sin contenido, equipos ni resultados inventados.
+- Tarjeta de Biblioteca convertida en índice transversal con estados por elemento, sin duplicar fuentes canónicas.
+- Buscador del inventario: el número canónico de cada referencia (01–24) permanece visible al filtrar (corrección de la renumeración detectada el 26/10).
+- Navegación: enlace «Transversal» y «↑ Volver al inicio» permanente en el pie.
+- `scripts/check-city.cjs`: nuevas comprobaciones de numeración canónica al filtrar, presencia de los cuatro estados exactos, ausencia del marcador de obras anterior y existencia de las secciones nuevas; se conservan las comprobaciones previas (24 referencias, sin desborde horizontal, anclas, IDs, búsqueda con tildes, reflow 200 %, fallback sin JS).
+- Sin fusión en main, sin despliegue, sin cambios de permisos ni de Drive. Los cuatro estados aplicados son los autorizados por la orden operativa 02. Nota editorial: el marcador 👷🏽‍♂️🏗️⚒️ se sustituye por 🚧 En obras en toda la página.
+
+---
+
 ## 2026-10-23 · Réplica documental N+N de formación (sin cambio de versión de plataforma)
 
 - Integrado el borrador curricular `KOS-CITY-FORM-ATG` V0.1 en `docs/academia/arquitecto-tecnologico-global/`, con metadatos YAML para validación.

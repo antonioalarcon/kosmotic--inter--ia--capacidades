@@ -22,12 +22,24 @@ const { chromium } = require('playwright');
     assert.equal(new Set(ids).size, ids.length, 'IDs must be unique');
     await page.getByRole('searchbox', { name: 'Buscar entre las 24 referencias' }).fill('Claude');
     assert.equal(await page.locator('.inventory-list > li:not([hidden])').count(), 1);
+    await page.locator('#meta-inv-query').fill('Llama');
+    const llama = page.locator('.inventory-list > li:not([hidden])');
+    assert.equal(await llama.count(), 1);
+    assert.match(await llama.first().innerText(), /^22\b/, 'canonical numbering must survive filtering (Llama is reference 22)');
     await page.locator('#meta-inv-query').fill('mícrosoft');
     assert.equal(await page.locator('.inventory-list > li:not([hidden])').count(), 1, 'accent insensitive search');
     await page.getByRole('button', { name: 'Limpiar', exact: true }).click();
     assert.equal(await page.locator('.inventory-list > li:not([hidden])').count(), 24);
     assert.equal(await page.locator('#meta-inv-query').evaluate(el => el === document.activeElement), true);
     assert.equal(await page.locator('#meta-inv-count').getAttribute('role'), 'status');
+    const bodyText = await page.evaluate(() => document.body.innerText);
+    for (const estado of ['Disponible', 'En investigación o experimentación', 'En preparación', '🚧 En obras']) {
+      assert.ok(bodyText.includes(estado), 'exact state label present: ' + estado);
+    }
+    assert.ok(!bodyText.includes('👷'), 'obsolete construction marker removed in favour of exact states');
+    for (const anchor of ['principios', 'retos', 'auti-f001', 'biblioteca-city']) {
+      assert.equal(await page.locator('#' + anchor).count(), 1, 'section present: #' + anchor);
+    }
     await page.setViewportSize({ width: 640, height: 900 });
     await page.addStyleTag({ content: 'body { font-size: 200% !important; }' });
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, '200 percent text reflow');
@@ -37,8 +49,9 @@ const { chromium } = require('playwright');
     await fallback.goto(url);
     assert.equal(await fallback.locator('.inventory-list > li').count(), 24);
     assert.equal(await fallback.locator('.inventory-list > li[hidden]').count(), 0);
+    assert.equal(await fallback.locator('.inventory-list .ref-num').count(), 24, 'explicit canonical numbers render without JS');
     await noJS.close();
-    console.log('PASS: 24 entries, search, reset/focus, anchors, IDs, responsive layout, text reflow and no-JS fallback');
+    console.log('PASS: 24 entries, canonical numbering on filter, exact states, search, reset/focus, anchors, IDs, responsive layout, text reflow and no-JS fallback');
   } finally {
     await browser.close();
   }

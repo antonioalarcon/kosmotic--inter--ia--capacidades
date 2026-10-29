@@ -10,6 +10,8 @@
     :root{color-scheme:dark;--base:#0b1526;--panel:#142239;--ink:#f4f8ff;--soft:#b6c4d4;--cyan:#6edfd5;--line:#30445a;--lime:#cbf49a}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{overflow-wrap:anywhere;margin:0;background:var(--base);color:var(--ink);font:16px/1.65 system-ui,-apple-system,Segoe UI,sans-serif}
     a{color:var(--cyan)}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--lime);outline-offset:4px}
+    .skip-link{position:absolute;left:-9999px;top:0;z-index:100;background:var(--lime);color:#07242b;font-weight:700;padding:10px 16px;border-radius:0 0 12px 0}
+    .skip-link:focus-visible{left:0;outline-color:#07242b}
     .shell{max-width:1140px;margin:auto;padding:0 24px}.mast{border-bottom:1px solid var(--line);background:#0b1526eb}
     nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:16px 0}
     .brand{font-weight:800;letter-spacing:.02em;text-decoration:none;color:var(--ink);white-space:normal}.brand span{color:var(--cyan)}
@@ -54,6 +56,7 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 <header class="mast">
   <nav class="shell" aria-label="Navegación principal">
     <a class="brand" href="#inicio">KosmoTIC<span> City</span></a>
@@ -75,7 +78,7 @@
     <p class="note"><strong>Disponible:</strong> presentación de KosmoTIC e Inter-IA, inventario de 24 referencias y una práctica introductoria abierta. <strong>En preparación:</strong> fichas detalladas del inventario, cursos completos, biblioteca, proyectos y participación. No hay altas de usuarios, cobros ni solicitudes personales habilitadas en este piloto.</p>
   </div>
 </div>
-<main>
+<main id="contenido" tabindex="-1">
   <section id="mapa" aria-labelledby="mapa-titulo"><div class="shell">
     <div class="tag">Orientación · Mapa visible del piloto</div>
     <h2 id="mapa-titulo">Descubre la estructura de KosmoTIC City</h2>

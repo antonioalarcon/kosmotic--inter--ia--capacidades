@@ -6,10 +6,30 @@ const { chromium } = require('playwright');
 (async () => {
   const browser = await chromium.launch({ headless: true });
   try {
-    const page = await browser.newPage();
     const errors = [];
+    // Nueva entrada V1.2 (/city/): mapa visual con la imagen original rotulada
+    const mapPage = await browser.newPage();
+    mapPage.on('pageerror', error => errors.push(error.message));
+    await mapPage.goto(pathToFileURL(path.resolve('web/city/index.html')).href);
+    for (const width of [320, 390, 1280]) {
+      await mapPage.setViewportSize({ width, height: 900 });
+      assert.equal(await mapPage.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, 'horizontal overflow at ' + width);
+    }
+    const hero = mapPage.locator('#mapa-visual img');
+    assert.equal(await hero.count(), 1, 'hero image present');
+    assert.match(await hero.getAttribute('src') || '', /assets\/ciudad-v1-2\.jpeg$/, 'hero uses the original image asset');
+    assert.ok((await hero.getAttribute('alt') || '').length > 30, 'hero image has a faithful alternative text');
+    assert.equal(await mapPage.locator('.hotspot').count(), 12, '12 building hotspots');
+    assert.equal(await mapPage.locator('.iconmenu button').count(), 13, '13 bottom bar buttons');
+    assert.equal(await mapPage.locator('.space-link').count(), 12, '12 equivalent list cards');
+    assert.ok(await mapPage.locator('a[href^="./portal"]').count() >= 1, 'link to the preserved portal present');
+    const mapIds = await mapPage.locator('[id]').evaluateAll(elements => elements.map(e => e.id));
+    assert.equal(new Set(mapIds).size, mapIds.length, 'IDs must be unique on the map page');
+
+    // Portal anterior, preservado en /city/portal/: inventario IA de 24 referencias
+    const page = await browser.newPage();
     page.on('pageerror', error => errors.push(error.message));
-    const url = pathToFileURL(path.resolve('web/city/index.html')).href;
+    const url = pathToFileURL(path.resolve('web/city/portal/index.html')).href;
     await page.goto(url);
     for (const width of [320, 390, 1280]) {
       await page.setViewportSize({ width, height: 900 });
@@ -62,7 +82,7 @@ const { chromium } = require('playwright');
     assert.equal(await fallback.locator('.inventory-list > li[hidden]').count(), 0);
     assert.equal(await fallback.locator('.inventory-list .ref-num').count(), 24, 'explicit canonical numbers render without JS');
     await noJS.close();
-    console.log('PASS: 24 entries, canonical numbering on filter, exact states, skip link, search, reset/focus, anchors, IDs, responsive layout, text reflow and no-JS fallback');
+    console.log('PASS: V1.2 map (image, 12 hotspots, 13 bar buttons, 12 cards, portal link) + 24 entries, canonical numbering on filter, exact states, skip link, search, reset/focus, anchors, IDs, responsive layout, text reflow and no-JS fallback');
   } finally {
     await browser.close();
   }

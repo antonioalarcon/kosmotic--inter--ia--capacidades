@@ -1,0 +1,12 @@
+/* KOS-WEB-CROMATICA-20261101-V1.0 · paleta y contraste */
+:root{
+ --kos-deep:#07162D;--kos-blue:#143D8D;--kos-cyan:#16D9F0;
+ --kos-turquoise:#28C9A3;--kos-violet:#7444C5;--kos-magenta:#D946B6;
+ --kos-amber:#FFAD62;--kos-light:#F4F7FB;--kos-aqua:#00E6FF;--kos-lavender:#8A6FFF;
+ --kos-gradient:linear-gradient(125deg,#07162D 0%,#143D8D 45%,#7444C5 76%,#D946B6 125%);
+}
+html{scroll-behavior:smooth}
+body{overflow-wrap:break-word}
+:where(h1,h2,h3,p,a,button){overflow-wrap:break-word}
+:where(button,a,input,summary):focus-visible{outline:3px solid var(--kos-amber);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

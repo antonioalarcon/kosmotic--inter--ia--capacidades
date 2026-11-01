@@ -7,15 +7,13 @@ Drive (zona 00_KOSMOTIC_SYSTEM, 01/11/2026).
 - Paleta aplicada: KOS-WEB-CROMATICA-20261101-V1.1 (diez HEX canónicos sin modificar).
   Predominio de azul profundo `#07162D`, azul eléctrico `#143D8D`, cian `#16D9F0` y turquesa
   `#45A79E`. Sin violetas en esta composición (acentos solo si se justifican).
-- Imagen `assets/ciudad-v1-2.jpeg`: adaptación estética generada por Instinct a partir de la
-  imagen de referencia aportada por el usuario (generada con ChatGPT en la conversación
-  KosmoTIC City y no incorporada al repositorio). Conserva estructura, edificios y nombres
-  de la referencia con estética futurista holográfica. Acreditación final de derechos
-  pendiente del contraste previo a publicación.
-- Mapa interactivo: cada edificio abre su apartado (botones HTML reales superpuestos,
-  operables con teclado y tecnologías de asistencia) con retorno visible a la ciudad.
-  El listado inferior conduce al mismo contenido. En móvil los accesos del mapa se muestran
-  como puntos táctiles de 40 px con etiqueta accesible.
+- Imagen de la ciudad: adaptación estética generada por Instinct a partir de la imagen de
+  referencia aportada por el usuario (generada con ChatGPT en la conversación KosmoTIC
+  City). RETIRADA del repositorio público a la espera de acreditar procedencia y derechos
+  de uso. El mapa interactivo completo (imagen + hotspots + retorno a la ciudad) está
+  verificado en una preview privada y se reincorporará cuando la imagen esté acreditada.
+- Navegación vigente en esta rama: listado accesible de los 12 espacios, operable con
+  teclado y tecnologías de asistencia, con detalle de cada espacio y retorno visible.
 - Nombres de los 12 espacios: tomados de la imagen de referencia; verificación documental
   en curso (Mapa Maestro V0.1 y contexto Tríada V1.0 no recogen los 12 con esta rotulación;
   pendiente de decisión con Antonio/ChatGPT).

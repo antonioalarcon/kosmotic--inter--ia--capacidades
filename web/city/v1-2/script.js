@@ -4,14 +4,14 @@
 // por Instinct a partir de la referencia aportada por Antonio Alarcón) y listado
 // accesible estático. Ambos abren el mismo detalle de cada espacio.
 const spaces=[
-{id:'biblioteca',x:49,y:18,name:'Biblioteca KosmoTIC',description:'Espacio previsto para organizar y descubrir recursos, documentos y conocimiento.'},
-{id:'negocios',x:29,y:22,name:'Centro de Negocios y Red',description:'Espacio previsto para conectar iniciativas, organizaciones y oportunidades de colaboración.'},
-{id:'confianza',x:22,y:38,name:'Círculo de Confianza',description:'Espacio previsto para relaciones basadas en confianza, transparencia y colaboración.'},
-{id:'comunidad',x:50,y:49,name:'Comunidad KosmoTIC',description:'Punto de encuentro central de las personas que forman la ciudad.'},
-{id:'inter-ia',x:70,y:22,name:'Inter-IA · Laboratorio Cognitivo',description:'Espacio de presentación del laboratorio cognitivo Inter-IA, bajo supervisión humana.'},
-{id:'formacion',x:89,y:24,name:'Formación y Talento',description:'Espacio previsto para aprendizaje, habilidades y desarrollo del talento.'},
+{id:'biblioteca',content:'biblioteca-city',x:49,y:18,name:'Biblioteca KosmoTIC',description:'Espacio previsto para organizar y descubrir recursos, documentos y conocimiento.'},
+{id:'negocios',content:'negocios-city',x:29,y:22,name:'Centro de Negocios y Red',description:'Espacio previsto para conectar iniciativas, organizaciones y oportunidades de colaboración.'},
+{id:'confianza',content:'confianza',x:22,y:38,name:'Círculo de Confianza',description:'Espacio previsto para relaciones basadas en confianza, transparencia y colaboración.'},
+{id:'comunidad',content:'comunidad-city',x:50,y:49,name:'Comunidad KosmoTIC',description:'Punto de encuentro central de las personas que forman la ciudad.'},
+{id:'inter-ia',content:'inter-ia',x:70,y:22,name:'Inter-IA · Laboratorio Cognitivo',description:'Espacio de presentación del laboratorio cognitivo Inter-IA, bajo supervisión humana.'},
+{id:'formacion',content:'academia-city',x:89,y:24,name:'Formación y Talento',description:'Espacio previsto para aprendizaje, habilidades y desarrollo del talento.'},
 {id:'comercio',x:77,y:41,name:'Comercio Local',description:'Espacio previsto para dar visibilidad al comercio y a la actividad local.'},
-{id:'innovacion',x:87,y:59,name:'Innovación y Proyectos',description:'Espacio previsto para iniciativas y proyectos en evolución.'},
+{id:'innovacion',content:'proyectos-city',x:87,y:59,name:'Innovación y Proyectos',description:'Espacio previsto para iniciativas y proyectos en evolución.'},
 {id:'cultura',x:18,y:61,name:'Cultura y Patrimonio',description:'Espacio previsto para contenidos culturales y patrimoniales.'},
 {id:'sostenibilidad',x:35,y:63,name:'Sostenibilidad y Entorno',description:'Espacio previsto para iniciativas relacionadas con el entorno y la sostenibilidad.'},
 {id:'datos',x:66,y:62,name:'Datos y Resultados',description:'Espacio previsto para información y resultados verificables.'},
@@ -23,7 +23,10 @@ let lastTrigger=null;
 function showSpace(id,trigger){
 const s=spaces.find(item=>item.id===id);if(!s)return false;
 if(trigger)lastTrigger=trigger;
-title.textContent=s.name;description.textContent=s.description;detail.hidden=false;
+title.textContent=s.name;description.textContent=s.description;
+const cl=document.getElementById('content-link');
+if(s.content){cl.href='../index.html#'+s.content;cl.hidden=false;cl.textContent='Ver contenido publicado en el portal'}else{cl.hidden=true}
+detail.hidden=false;
 try{history.replaceState(null,'','#'+s.id)}catch(e){}
 detail.scrollIntoView({block:'start',behavior:reduced()?'instant':'smooth'});
 detail.focus({preventScroll:true});

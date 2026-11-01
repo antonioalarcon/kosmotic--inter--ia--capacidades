@@ -42,6 +42,7 @@ a{color:inherit}button{font:inherit}
 .detail[hidden]{display:none}
 .detail-head{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
 .eyebrow{color:var(--cyan);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em}
+.return[hidden]{display:none}
 .detail button,.return{display:inline-block;padding:9px 14px;border:1px solid var(--turquoise);border-radius:10px;background:rgba(7,22,45,.8);color:var(--light);text-decoration:none;cursor:pointer}
 .status{color:var(--amber)}
 footer{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid var(--line);padding:22px clamp(18px,4vw,56px);font-size:.8rem;color:var(--muted)}

@@ -1,7 +1,7 @@
 # KosmoTIC City · Vista visual V1.2 (en validación)
 
-Prototipo integrado desde el paquete `kosmotic-city-v1.2.zip` depositado por Antonio en Drive
-(`00_KOSMOTIC_SYSTEM`, carpeta `1NULzdVpYWooQTH8Z9PpMdgLfxOHTSjMC`, 01/11/2026).
+Prototipo integrado desde el paquete `kosmotic-city-v1.2.zip` depositado por Antonio en su
+Drive (zona 00_KOSMOTIC_SYSTEM, 01/11/2026).
 
 - Rama de trabajo: `feat/kosmotic-city-v1-2-20261101`. Sin fusionar, desplegar ni publicar.
 - Paleta aplicada: KOS-WEB-CROMATICA-20261101-V1.1 (diez HEX canónicos sin modificar).

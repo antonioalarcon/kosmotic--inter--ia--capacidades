@@ -55,6 +55,21 @@
     .inventory-count{flex-basis:100%;margin:0;font-size:.91rem;color:var(--soft)}
     .inventory-list li[hidden]{display:none}
   </style>
+  <link rel="stylesheet" href="../css/kosmotic-palette.css">
+  <style>
+  /* Ajustes cromáticos KosmoTIC · aislados en rama de diseño */
+  :root{--base:#07162D;--panel:#10264F;--ink:#F4F7FB;--soft:#D4E3F8;--cyan:#16D9F0;--line:#526A97;--lime:#FFAD62}
+  body{background:var(--kos-deep);color:var(--kos-light)}
+  .mast{background:#07162Df5}
+  .hero{background:radial-gradient(ellipse at 83% 23%,#7444C58c,transparent 55%),linear-gradient(125deg,#07162D,#143D8D 55%,#7444C5)}
+  h1,h2,h3,.card h3,.lesson h3{color:#F4F7FB}
+  .cta{background:#16D9F0;color:#07162D}
+  .cta.secondary{color:#F4F7FB;border-color:#8A6FFF}
+  .card{background:#10264F;border-color:#526A97}
+  .tag{color:#28C9A3}
+  .map-links a{color:#F4F7FB}
+  @media(max-width:520px){h1{font-size:clamp(2rem,9vw,3.3rem);line-height:1.12}.hero{padding:45px 0}}
+  </style>
 </head>
 <body>
 <a class="skip-link" href="#contenido">Saltar al contenido</a>

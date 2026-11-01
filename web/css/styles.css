@@ -1,3 +1,4 @@
+@import url("./kosmotic-palette.css");
 :root {
   --bg: #070b13;
   --panel: #101827;
@@ -209,3 +210,13 @@ a { color: var(--accent); }
   .actions { flex-direction: column; align-items: stretch; }
   .cta { text-align: center; }
 }
+
+/* KosmoTIC V1.0 · implementación cromática en rama de diseño */
+:root{--bg:var(--kos-deep);--panel:#10264F;--panel-soft:#143D8D;--text:var(--kos-light);--muted:#D5E3F6;--accent:var(--kos-cyan);--accent-2:var(--kos-lavender);--line:#6174A3}
+body{background:radial-gradient(circle at 85% 5%,#7444C555,transparent 38rem),var(--kos-deep)}
+.hero{position:relative}
+.hero h1,.section h2,.card h3{color:var(--kos-light)}
+.cta{border-color:var(--kos-lavender);color:var(--kos-light)}
+.cta:first-child{background:var(--kos-cyan);color:var(--kos-deep);border-color:var(--kos-cyan)}
+.card{background:linear-gradient(145deg,#143D8D66,#07162D);border-color:#6174A3}
+@media(max-width:560px){h1{font-size:clamp(2rem,9vw,3.4rem);line-height:1.1}.hero{padding-top:44px}.section{padding:30px 0}}
